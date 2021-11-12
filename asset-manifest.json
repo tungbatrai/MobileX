@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/tungbatrai/MobileX.git/static/css/main.531431d1.chunk.css",
+    "main.js": "/tungbatrai/MobileX.git/static/js/main.63338257.chunk.js",
+    "main.js.map": "/tungbatrai/MobileX.git/static/js/main.63338257.chunk.js.map",
+    "runtime-main.js": "/tungbatrai/MobileX.git/static/js/runtime-main.eae77bf7.js",
+    "runtime-main.js.map": "/tungbatrai/MobileX.git/static/js/runtime-main.eae77bf7.js.map",
+    "static/css/2.fa42e46e.chunk.css": "/tungbatrai/MobileX.git/static/css/2.fa42e46e.chunk.css",
+    "static/js/2.9379c67e.chunk.js": "/tungbatrai/MobileX.git/static/js/2.9379c67e.chunk.js",
+    "static/js/2.9379c67e.chunk.js.map": "/tungbatrai/MobileX.git/static/js/2.9379c67e.chunk.js.map",
+    "static/js/3.a8ad70fe.chunk.js": "/tungbatrai/MobileX.git/static/js/3.a8ad70fe.chunk.js",
+    "static/js/3.a8ad70fe.chunk.js.map": "/tungbatrai/MobileX.git/static/js/3.a8ad70fe.chunk.js.map",
+    "index.html": "/tungbatrai/MobileX.git/index.html",
+    "static/css/2.fa42e46e.chunk.css.map": "/tungbatrai/MobileX.git/static/css/2.fa42e46e.chunk.css.map",
+    "static/css/main.531431d1.chunk.css.map": "/tungbatrai/MobileX.git/static/css/main.531431d1.chunk.css.map",
+    "static/js/2.9379c67e.chunk.js.LICENSE.txt": "/tungbatrai/MobileX.git/static/js/2.9379c67e.chunk.js.LICENSE.txt",
+    "static/media/apple.fe66300b.svg": "/tungbatrai/MobileX.git/static/media/apple.fe66300b.svg",
+    "static/media/banner2.064c4d7b.jpg": "/tungbatrai/MobileX.git/static/media/banner2.064c4d7b.jpg",
+    "static/media/banner3.a0db04e0.jpg": "/tungbatrai/MobileX.git/static/media/banner3.a0db04e0.jpg",
+    "static/media/banner6.8d4d45f1.jpg": "/tungbatrai/MobileX.git/static/media/banner6.8d4d45f1.jpg",
+    "static/media/banner_1.7d683cea.png": "/tungbatrai/MobileX.git/static/media/banner_1.7d683cea.png",
+    "static/media/bitcoin.09c6c122.svg": "/tungbatrai/MobileX.git/static/media/bitcoin.09c6c122.svg",
+    "static/media/diners.84855662.svg": "/tungbatrai/MobileX.git/static/media/diners.84855662.svg",
+    "static/media/style.scss": "/tungbatrai/MobileX.git/static/media/slick.c94f7671.ttf",
+    "static/media/ip13.f9842a8a.jpg": "/tungbatrai/MobileX.git/static/media/ip13.f9842a8a.jpg",
+    "static/media/ip13blue.55f4365b.jpg": "/tungbatrai/MobileX.git/static/media/ip13blue.55f4365b.jpg",
+    "static/media/jcb.fa806b5a.svg": "/tungbatrai/MobileX.git/static/media/jcb.fa806b5a.svg",
+    "static/media/product1.a0bdbb5d.jpg": "/tungbatrai/MobileX.git/static/media/product1.a0bdbb5d.jpg",
+    "static/media/product2.a66016e1.jpg": "/tungbatrai/MobileX.git/static/media/product2.a66016e1.jpg",
+    "static/media/product3.e1a10659.jpg": "/tungbatrai/MobileX.git/static/media/product3.e1a10659.jpg",
+    "static/media/visa.01065978.svg": "/tungbatrai/MobileX.git/static/media/visa.01065978.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eae77bf7.js",
+    "static/css/2.fa42e46e.chunk.css",
+    "static/js/2.9379c67e.chunk.js",
+    "static/css/main.531431d1.chunk.css",
+    "static/js/main.63338257.chunk.js"
+  ]
+}
