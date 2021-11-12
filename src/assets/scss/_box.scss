@@ -1,0 +1,39 @@
+.modal-procut-detail {
+  .modal-content {
+    padding: 15px;
+  }
+  .image {
+    width: 380px;
+    height: 380px;
+  }
+  .modal-dialog {
+    max-width: 900px;
+  }
+  input {
+    border: 1px solid #f2f4ff !important;
+  }
+}
+
+// box product detail khuyen mai
+.box-promotion {
+  .promotion-title {
+    padding: 8px 10px;
+    color: #212529;
+    font-weight: 500;
+    -webkit-box-shadow: inset 0 -1px 0 0 #e9ecef;
+    box-shadow: inset 0 -1px 0 0 #e9ecef;
+    border: 1px solid;
+    border-color: #e9ecef #e9ecef transparent #e9ecef;
+    border-radius: 4px 4px 0 0;
+  }
+  .promotion-list {
+    border: 1px solid;
+    border-color: transparent #e9ecef #e9ecef #e9ecef;
+    border-radius: 0 0 4px 4px;
+    padding: 8px 10px;
+    i {
+      color: #48bb78;
+      margin-right: 8px;
+    }
+  }
+}
