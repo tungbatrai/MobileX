@@ -41,6 +41,9 @@ export default function ProductDetail() {
     autoplay: true,
     autoplaySpeed: 2000,
   };
+  function handleStart (e) {
+    console.log(e)
+  }
   return (
     <div>
       <div className="product-detail-page">
@@ -188,6 +191,13 @@ export default function ProductDetail() {
                   <h3 className="font-20 font-medium text-center mb-4">
                     Đánh giá chi tiết iPhone 13 Pro Max
                   </h3>
+                  <b className="g500 title-header">
+                    iPhone 12 ra mắt với vai trò mở ra một kỷ nguyên hoàn toàn
+                    mới. Tốc độ mạng 5G siêu tốc, bộ vi xử lý A14 Bionic nhanh
+                    nhất thế giới smartphone, màn hình OLED tràn cạnh tuyệt đẹp
+                    và camera siêu chụp đêm, tất cả đều có mặt trên iPhone 12.
+                  </b>{" "}
+                  <br />
                   <ReactReadMoreReadLess
                     charLimit={200}
                     readMoreText={"Đọc tiếp ▼"}
@@ -373,6 +383,7 @@ export default function ProductDetail() {
                       emptySymbol="fa fa-star-o fa-2x"
                       fullSymbol="fa fa-star fa-2x"
                       fractions={2}
+                      onChange={(e) => handleStart(e)}
                     />
                   </div>
                   <div className="col-span-2">
@@ -384,11 +395,12 @@ export default function ProductDetail() {
                         <Form.Control
                           as="textarea"
                           placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"
-                          style={{ height: "100px" }}
+                          // style={{ height: "100px" }}
+                          className="padding-button-comment min-height"
                         />
                         <Button
                           variant="r200"
-                          className="btn-evaluate btn-square btw-130"
+                          className="btn-evaluate btn-square btw-130 col-1 "
                         >
                           <p className="font-13">Gửi đánh giá</p>
                         </Button>
@@ -412,9 +424,7 @@ export default function ProductDetail() {
                   />
                   <span className="font-14 text-g200 ml-2">1 ngày trước</span>
                   <p className="font-16 text-g100">
-                    Thất vọng về thằng Tùng, vừa ngu vừa dốt lại còn bảo thủ.
-                    Cái loại này cho đi tù ăn cơm nhà nước, không nên để nó sinh
-                    sản thêm
+                    tôi muốn đặt mua Iphone thì có thể mua ở đâu ?
                   </p>
                 </div>
               </div>
@@ -431,11 +441,12 @@ export default function ProductDetail() {
                   <Form.Control
                     as="textarea"
                     placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"
-                    style={{ height: "100px" }}
+                  
+                    className="padding-button-comment min-height"
                   />
                   <Button
                     variant="r200"
-                    className="btn-evaluate btn-square btw-130"
+                    className="btn-evaluate btn-square btw-130  col-1"
                   >
                     <p className="font-13">Gửi đánh giá</p>
                   </Button>
@@ -447,13 +458,11 @@ export default function ProductDetail() {
                 </div>
                 <div className="c-comment-box__content col-span-11">
                   <p className="font-18 m-0">
-                    Duy Anh{" "}
+                    Người dùng{" "}
                     <span className="font-14 text-g200 ml-2">1 ngày trước</span>
                   </p>{" "}
                   <p className="font-16 text-g100 m-0">
-                    Thất vọng về thằng Tùng, vừa ngu vừa dốt lại còn bảo thủ.
-                    Cái loại này cho đi tù ăn cơm nhà nước, không nên để nó sinh
-                    sản thêm
+                    tôi muốn đặt mua Iphone thì có thể mua ở đâu ?
                   </p>
                   <Button variant="link" className="btn-square btw-65-answer">
                     <p className="font-14">Trả lời</p>
@@ -466,11 +475,12 @@ export default function ProductDetail() {
                       <Form.Control
                         as="textarea"
                         placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"
-                        style={{ height: "80px" }}
+                        // style={{ height: "80px" }}
+                        className="padding-button-comment min-height"
                       />
                       <Button
                         variant="r200"
-                        className="btn-evaluate btn-square btw-120"
+                        className="btn-evaluate btn-square btw-120 col-1"
                       >
                         <p className="font-13">Viết câu hỏi</p>
                       </Button>
@@ -484,20 +494,18 @@ export default function ProductDetail() {
                 </div>
                 <div className="c-comment-box__content col-span-11">
                   <p className="font-18 m-0">
-                    Duy Anh{" "}
+                    Người dùng{" "}
                     <span className="font-14 text-g200 ml-2">1 ngày trước</span>
                   </p>{" "}
                   <p className="font-16 text-g100 m-0">
-                    Thất vọng về thằng Tùng, vừa ngu vừa dốt lại còn bảo thủ.
-                    Cái loại này cho đi tù ăn cơm nhà nước, không nên để nó sinh
-                    sản thêm
+                    tôi muốn đặt mua Iphone thì có thể mua ở đâu ?
                   </p>
                   <Button variant="link" className="btn-square btw-65-answer">
                     <p className="font-14">Trả lời</p>
                   </Button>
                   <div className="c-admin-comment">
                     <p className="font-18 m-0 d-flex items-center">
-                      Thái nến
+                      Admin
                       <span className="text-admin font-10 ml-2">
                         Quản trị viên
                       </span>
@@ -506,8 +514,7 @@ export default function ProductDetail() {
                       </span>
                     </p>{" "}
                     <p className="font-16 text-g100 m-0">
-                      Nó không những ngu còn bị thần kinh, mong anh Duy thông
-                      cảm cho thằng em của mình
+                      bạn có thể mua trước tiếp ở cửa hàng MobieX ở HN nhé
                     </p>
                   </div>
                 </div>

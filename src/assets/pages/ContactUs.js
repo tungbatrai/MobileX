@@ -61,7 +61,8 @@ export default function ContactUs() {
                 <Form.Control
                   as="textarea"
                   placeholder="Message"
-                  style={{ height: "100px" }}
+                  // style={{ height: "100px" }}
+                  className=' min-height'
                 />
               </Form>
               <Button
