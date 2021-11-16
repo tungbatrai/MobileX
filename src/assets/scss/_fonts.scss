@@ -83,9 +83,16 @@
 .text-g100 {
   color: $g100;
 }
+.text-r300 {
+  color: $r300;
+}
 
 .font-lg-60 {
   @media (min-width: 1024px) {
     font-size: 60px;
   }
+}
+.form-control {
+  font-size: 14px;
+  height: 42px;
 }

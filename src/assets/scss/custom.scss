@@ -167,7 +167,7 @@
     }
   }
   .title-color {
-    color:$g600;
+    color: $g600;
   }
 }
 .product-parameter {
@@ -243,6 +243,7 @@
     background-color: red;
   }
 }
+
 .average_rating {
   .fa {
     margin: 4px;
@@ -279,7 +280,6 @@
   .fa {
     margin: 4px;
   }
-
 }
 .box-rating {
   padding: 16px 20px;
@@ -334,4 +334,32 @@
 }
 .padding-button-comment {
   padding-right: 155px;
+}
+// cart
+.cart-page {
+  background-color: #f0f0f0;
+  padding: 20px 0;
+  .cart-image-product {
+    width: 75px;
+    height: 75px;
+  }
+}
+.choosenumber {
+  display: flex;
+  align-items: center;
+  .btn-up-down {
+    border: 1px solid;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .input-number {
+    width: 30px;
+    text-align: center;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    height: 30px;
+  }
 }

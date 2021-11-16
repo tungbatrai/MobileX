@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Header from "./assets/common/Header";
 import ProductDetail from "./assets/common/ProductDetail";
 import Demo from "./assets/components/Demo";
+import OrderSuccess from "./assets/components/OrderSuccess";
 import Cart from "./assets/pages/Cart";
 import Catalog from "./assets/pages/Catalog";
 import ContactUs from "./assets/pages/ContactUs";
@@ -17,6 +18,9 @@ export default function Routes() {
         </Route>
         <Route path="/cart">
           <Cart />
+        </Route>
+        <Route path="/ordersuccess">
+          <OrderSuccess />
         </Route>
         <Route path="/login"></Route>
         <Route path="/catalog">

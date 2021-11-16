@@ -41,8 +41,8 @@ export default function ProductDetail() {
     autoplay: true,
     autoplaySpeed: 2000,
   };
-  function handleStart (e) {
-    console.log(e)
+  function handleStart(e) {
+    console.log(e);
   }
   return (
     <div>
@@ -441,7 +441,6 @@ export default function ProductDetail() {
                   <Form.Control
                     as="textarea"
                     placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"
-                  
                     className="padding-button-comment min-height"
                   />
                   <Button

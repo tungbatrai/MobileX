@@ -37,3 +37,33 @@
     }
   }
 }
+
+//cart
+.box-cart {
+  max-width: 600px;
+  background-color: #fff;
+  margin: auto;
+}
+.discountpromotion {
+  margin: 5px 0 5px 0;
+  background: #fff3c2;
+  padding: 8px 10px;
+}
+.box-cart-detail {
+  border-top: 1px solid #d1d1d1;
+  padding: 24px;
+}
+.tab-choose {
+  .nav-link {
+    padding: 12px;
+    margin-right: 0;
+    .active {
+      padding: 0;
+    }
+  }
+}
+.box-choose-content {
+  background: #f6f6f6;
+  padding: 20px;
+  border: 1px solid #e1e1e1;
+}
