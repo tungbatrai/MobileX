@@ -15,7 +15,7 @@ export default function Footer() {
     <div>
       <footer>
         <div className="footer_newsletter_caption">
-          <div className="container flex justify-between items-center">
+          <div className="container grid grid-cols-1 md:grid-cols-2 gap-4  items-center ">
             <div className="newsletter">
               <div className="font-22">
                 Get our latest news and special sales
@@ -32,7 +32,7 @@ export default function Footer() {
               />
               <Button
                 variant="b500"
-                className="btn-square btw-65 font-14 font-semibold "
+                className="btn-square btw-65 font-14 font-semibold"
               >
                 GET
               </Button>
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer_main">
-          <div class="footer-contact grid grid-rows-1 grid-flow-col gap-4">
+          <div class="footer-contact grid grid-rows-4 md:grid-rows-1 grid-flow-col gap-4">
             <div>
               <h6 className="mb-3">YOUR ACCOUNT</h6>
               <ul className="text-g200">
@@ -81,9 +81,9 @@ export default function Footer() {
             </div>
           </div>
           <div className="container_big">
-            <div className="flex justify-between items-center">
+            <div className=" md:flex justify-between items-center">
               <div className="text-g200">&#169; 2021. Powered by Shopify</div>
-              <div className="flex">
+              <div className="flex justify-center my-2">
                 <div className="footer_payments mx-1">
                   <Image src={Apple} alt="banner" />
                 </div>

@@ -11,8 +11,8 @@ export default function ContactUs() {
           <Breadcrumb.Item active>Contact Us</Breadcrumb.Item>
         </Breadcrumb>
 
-        <div className="grid grid-cols-12 gap-8">
-          <div className="col-span-2">
+        <div className="grid grid-cols-12 gap-4">
+          <div className="col-span-12 md:col-span-2">
             <ul className="mb-4">
               <li className="font-16 font-semibold uppercase">
                 CUSTOMER SERVICE
@@ -34,7 +34,7 @@ export default function ContactUs() {
               <li className="text-g200">521 Fifth Avenue, Pelham, NY 10783</li>
             </ul>
           </div>
-          <div className="col-span-10">
+          <div className="col-span-12 md:col-span-10">
             <div className="google-map mb-5">
               <Map />
             </div>
@@ -62,7 +62,7 @@ export default function ContactUs() {
                   as="textarea"
                   placeholder="Message"
                   // style={{ height: "100px" }}
-                  className=' min-height'
+                  className=" min-height"
                 />
               </Form>
               <Button

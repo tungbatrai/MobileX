@@ -16,9 +16,9 @@ export default function Catalog() {
         <Breadcrumb>
           <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
 
-          <Breadcrumb.Item active>Catalog</Breadcrumb.Item>
+          <Breadcrumb.Item active>Điện thoại</Breadcrumb.Item>
         </Breadcrumb>
-        <div className="collection_title">Products</div>
+
         <div className="mt-5">
           <ListProduct />
         </div>

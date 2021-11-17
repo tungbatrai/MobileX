@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import {
-  Button, Form,
-  Image, Tab,
-  Tabs
-} from "react-bootstrap";
+import { Button, Form, Image, Tab, Tabs } from "react-bootstrap";
 import { useHistory } from "react-router";
 import Banner from "../Images/banner2.jpg";
 
@@ -18,13 +14,13 @@ export default function Cart() {
     <div className="cart-page">
       <div className="box-cart">
         <div className="px-4 py-4">
-          <div className="grid grid-cols-5 gap-4">
-            <div>
+          <div className="grid grid-cols-12 gap-4">
+            <div className="col-span-3 md:col-span-2">
               <div className="cart-image-product">
                 <Image src={Banner} alt="banner" />
               </div>
             </div>
-            <div className="col-span-4">
+            <div className="col-span-9 md:col-span-10">
               <div className="flex justify-between items-center">
                 <h4 className="font-14 font-medium m-0">
                   Điện thoại Samsung Galaxy Z Flip3 5G 256GB

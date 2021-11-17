@@ -57,7 +57,7 @@ export default function OrderSuccess() {
                 variant="b500"
                 className="btn-square w-100 font-14 font-semibold"
               >
-                Thanh toán khi nhận hàng
+                Tiền mặt
               </Button>
             </div>
             <div>
@@ -65,7 +65,7 @@ export default function OrderSuccess() {
                 variant="b500"
                 className="btn-square w-100 font-14 font-semibold"
               >
-                Thanh toán thẻ ATM
+                Thẻ ATM
               </Button>
             </div>
             <div>
@@ -73,7 +73,7 @@ export default function OrderSuccess() {
                 variant="b500"
                 className="btn-square w-100  font-14 font-semibold"
               >
-                Thanh toán thẻ
+                Thẻ ngân hàng
               </Button>
             </div>
             <div>
@@ -81,7 +81,7 @@ export default function OrderSuccess() {
                 variant="b500"
                 className="btn-square w-100 font-14 font-semibold"
               >
-                Thanh toán chuyển khoản
+                Chuyển khoản
               </Button>
             </div>
           </div>
@@ -96,17 +96,17 @@ export default function OrderSuccess() {
           <h4 className="font-14 uppercase mb-4">thời gian nhận hàng</h4>
           <div className="box-choose-content">
             <p className="font-14">Giao trước 11h00 Hôm nay (17/11)</p>
-            <div className="grid grid-cols-5 gap-4">
-              <div>
+            <div className="grid grid-cols-12 gap-4">
+              <div className="col-span-4 md:col-span-2">
                 <div className="cart-image-product">
                   <Image src={Banner} alt="banner" />
                 </div>
               </div>
-              <div className="col-span-4">
+              <div className="col-span-8 md:col-span-10">
                 <h4 className="font-14 font-medium m-0">
                   Điện thoại Samsung Galaxy Z Flip3 5G 256GB
                 </h4>
-                <div className="font-14 grid grid-cols-2 gap-3 mt-2">
+                <div className="font-14 grid grid-cols-2 gap-2 mt-2">
                   <p>
                     Màu: <span>Xanh Dương</span>{" "}
                   </p>

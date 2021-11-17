@@ -55,7 +55,7 @@ export default function ProductDetail() {
             </Breadcrumb.Item>
             <Breadcrumb.Item active>Iphone 13 pro max</Breadcrumb.Item>
           </Breadcrumb>
-          <div className="box-detail grid grid-cols-2 gap-6">
+          <div className="box-detail grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <Slider {...settings}>
                 <div className="image">
@@ -76,7 +76,7 @@ export default function ProductDetail() {
               </Slider>
             </div>
             <div className="product-information">
-              <h3 className="price">
+              <h3 className="price text-center text-md-left">
                 36.490.000đ <span>36.990.000đ</span>
               </h3>
               <div className="radio-price">
@@ -107,7 +107,7 @@ export default function ProductDetail() {
                   </ToggleButton>
                 </ToggleButtonGroup>
               </div>
-              <div className="my-3">
+              <div className="my-3 text-center text-md-left">
                 {" "}
                 <Button
                   variant="border-g100"
@@ -169,8 +169,8 @@ export default function ProductDetail() {
         </div>
         <div className="product-detail-info mt-5">
           <div className="container">
-            <div className="grid grid-cols-3 gap-5">
-              <div className="product-features col-span-2">
+            <div className="grid grid-cols-12 gap-5">
+              <div className="product-features col-span-12 md:col-span-7">
                 <h3 className="font-20 font-medium mb-5">
                   Đặc điểm nổi bật của iPhone 13 Pro Max
                 </h3>
@@ -222,7 +222,7 @@ export default function ProductDetail() {
                   </ReactReadMoreReadLess>
                 </div>
               </div>
-              <div className="product-parameter ">
+              <div className="product-parameter  col-span-12 md:col-span-5">
                 <Table striped bordered hover>
                   <tbody className="font-14">
                     <tr>
@@ -280,9 +280,9 @@ export default function ProductDetail() {
             <div className="product-rating mt-5">
               <div className="box-rating ">
                 <h3 className="font-20 font-medium mb-3">
-                  Đặc điểm nổi bật của iPhone 13 Pro Max
+                  Đánh giá & Nhận xét
                 </h3>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="average_rating text-center">
                     <h5 className="font-16 font-normal">Đánh giá trung bình</h5>
                     <div className="number_rating">4/5</div>
@@ -303,10 +303,10 @@ export default function ProductDetail() {
                   </div>
                   <div>
                     <div className="row mx-n1 items-center">
-                      <div className="col-2 px-1 ">
+                      <div className="col-3 px-1 ">
                         5 <i class="fa fa-star"></i>
                       </div>
-                      <div className="col-10 px-1">
+                      <div className="col-9 px-1">
                         <ProgressBar
                           className="progress-rating"
                           variant="success"
@@ -315,10 +315,10 @@ export default function ProductDetail() {
                       </div>
                     </div>
                     <div className="row mx-n1 items-center">
-                      <div className="col-2 px-1 ">
+                      <div className="col-3 px-1">
                         4 <i class="fa fa-star"></i>
                       </div>
-                      <div className="col-10 px-1">
+                      <div className="col-9 px-1">
                         <ProgressBar
                           className="progress-rating"
                           variant="success"
@@ -327,10 +327,10 @@ export default function ProductDetail() {
                       </div>
                     </div>
                     <div className="row mx-n1 items-center">
-                      <div className="col-2 px-1 ">
+                      <div className="col-3 px-1">
                         3 <i class="fa fa-star"></i>
                       </div>
-                      <div className="col-10 px-1">
+                      <div className="col-9 px-1">
                         <ProgressBar
                           className="progress-rating"
                           variant="success"
@@ -339,10 +339,10 @@ export default function ProductDetail() {
                       </div>
                     </div>
                     <div className="row mx-n1 items-center">
-                      <div className="col-2 px-1 ">
+                      <div className="col-3 px-1">
                         2 <i class="fa fa-star"></i>
                       </div>
-                      <div className="col-10 px-1">
+                      <div className="col-9 px-1">
                         <ProgressBar
                           className="progress-rating"
                           variant="success"
@@ -351,10 +351,10 @@ export default function ProductDetail() {
                       </div>
                     </div>
                     <div className="row mx-n1 items-center">
-                      <div className="col-2 px-1 ">
+                      <div className="col-3 px-1">
                         1 <i class="fa fa-star ml-1"></i>
                       </div>
-                      <div className="col-10 px-1">
+                      <div className="col-9 px-1">
                         <ProgressBar
                           className="progress-rating"
                           variant="success"
@@ -374,7 +374,7 @@ export default function ProductDetail() {
                 </div>
               </div>
               <div className="box-comment">
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="">
                     <p className="font-18 text-medium">
                       Bạn chấm sản phẩm này bao nhiêu sao?
@@ -394,12 +394,13 @@ export default function ProductDetail() {
                       >
                         <Form.Control
                           as="textarea"
-                          placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"
-                          // style={{ height: "100px" }}
+                          placeholder="Câu hỏi"
+                          style={{ height: "100px" }}
+                          className="textarea-comment"
                         />
                         <Button
                           variant="r200"
-                          className="btn-evaluate btn-square btw-130 col-1 "
+                          className="btn-evaluate btn-square btw-130 col-4 col-md-2 col-md-2"
                         >
                           <p className="font-13">Gửi đánh giá</p>
                         </Button>
@@ -409,10 +410,10 @@ export default function ProductDetail() {
                 </div>
               </div>
               <div className="box-c-user-comment grid grid-cols-12 gap-6">
-                <div className="avatar">
+                <div className="avatar col-span-3 md:col-span-2 lg:col-span-1">
                   <Image src={Banner6} alt="banner" />
                 </div>
-                <div className="c-comment-box__content col-span-11">
+                <div className="c-comment-box__content col-span-9 md:col-span-10">
                   <p className="font-18 m-0">Duy Anh</p>
                   <ReactRating
                     initialRating={1}
@@ -439,21 +440,23 @@ export default function ProductDetail() {
                 >
                   <Form.Control
                     as="textarea"
-                    placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"
+                    placeholder="Câu hỏi"
+                    style={{ height: "80px" }}
+                    className="textarea-comment"
                   />
                   <Button
                     variant="r200"
-                    className="btn-evaluate btn-square btw-130  col-1"
+                    className="btn-evaluate btn-square btw-130 col-4 col-md-2"
                   >
                     <p className="font-13">Gửi đánh giá</p>
                   </Button>
                 </FloatingLabel>
               </>
               <div className="box-c-user-comment grid grid-cols-12 gap-6">
-                <div className="avatar">
+                <div className="avatar col-span-12 md:col-span-2 lg:col-span-1">
                   <Image src={Banner6} alt="banner" />
                 </div>
-                <div className="c-comment-box__content col-span-11">
+                <div className="c-comment-box__content col-span-12 md:col-span-10 lg:col-span-11">
                   <p className="font-18 m-0">
                     Người dùng{" "}
                     <span className="font-14 text-g200 ml-2">1 ngày trước</span>
@@ -471,12 +474,13 @@ export default function ProductDetail() {
                     >
                       <Form.Control
                         as="textarea"
-                        placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"
-                        // style={{ height: "80px" }}
+                        placeholder="Câu hỏi"
+                        style={{ height: "80px" }}
+                        className="textarea-comment"
                       />
                       <Button
                         variant="r200"
-                        className="btn-evaluate btn-square btw-120 col-1"
+                        className="btn-evaluate btn-square btw-120 col-4 col-md-2"
                       >
                         <p className="font-13">Viết câu hỏi</p>
                       </Button>
@@ -485,10 +489,10 @@ export default function ProductDetail() {
                 </div>
               </div>
               <div className="box-c-user-comment grid grid-cols-12 gap-6">
-                <div className="avatar">
+                <div className="avatar col-span-12 md:col-span-2 lg:col-span-1">
                   <Image src={Banner6} alt="banner" />
                 </div>
-                <div className="c-comment-box__content col-span-11">
+                <div className="c-comment-box__content col-span-12 md:col-span-10 lg:col-span-11">
                   <p className="font-18 m-0">
                     Người dùng{" "}
                     <span className="font-14 text-g200 ml-2">1 ngày trước</span>

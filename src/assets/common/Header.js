@@ -21,10 +21,6 @@ export default function Header() {
               </NavLink>
 
               <NavLink to="/" className="header_search">
-                Wishlist
-              </NavLink>
-
-              <NavLink to="/" className="header_search">
                 Account
               </NavLink>
 
@@ -36,23 +32,18 @@ export default function Header() {
         </div>
         <div className="header_row_2 flex justify-center items-center">
           <div className="container flex justify-center">
-            <Nav variant="pills" defaultActiveKey="/">
+            <Nav variant="pills">
               <Nav.Item>
-                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/catalog">Điện thoại</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/catalog" eventKey="catalog">
-                  Catalog
-                </Nav.Link>
+                <Nav.Link href="/laptop">Laptop</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="collections">Collections</Nav.Link>
+                <Nav.Link href="/clock">Đồng Hồ thông minh</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="clearance">Clearance</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="sections">Sections All</Nav.Link>
+                <Nav.Link href="/accessory">Phụ kiện</Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link href="/contact-us" eventKey="contact">
