@@ -28,7 +28,7 @@ export default function Header() {
                 Account
               </NavLink>
 
-              <NavLink to="/" className="header_search">
+              <NavLink to="/cart" className="header_search">
                 Cart
               </NavLink>
             </div>

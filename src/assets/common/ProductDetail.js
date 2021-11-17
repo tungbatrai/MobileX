@@ -396,7 +396,6 @@ export default function ProductDetail() {
                           as="textarea"
                           placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"
                           // style={{ height: "100px" }}
-                          className="padding-button-comment min-height"
                         />
                         <Button
                           variant="r200"
@@ -441,7 +440,6 @@ export default function ProductDetail() {
                   <Form.Control
                     as="textarea"
                     placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"
-                    className="padding-button-comment min-height"
                   />
                   <Button
                     variant="r200"
@@ -475,7 +473,6 @@ export default function ProductDetail() {
                         as="textarea"
                         placeholder="Bạn có khuyên người khác mua sản phẩm này không? Tại sao?"
                         // style={{ height: "80px" }}
-                        className="padding-button-comment min-height"
                       />
                       <Button
                         variant="r200"

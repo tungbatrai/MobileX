@@ -67,3 +67,13 @@
   padding: 20px;
   border: 1px solid #e1e1e1;
 }
+
+// modal cancel order
+.modal-cancel-order {
+  .modal-dialog {
+    max-width: 350px;
+  }
+  .modal-content {
+    padding: 30px;
+  }
+}

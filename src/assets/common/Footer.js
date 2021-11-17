@@ -5,8 +5,12 @@ import Diner from "../Images/diners.svg";
 import Jcb from "../Images/jcb.svg";
 import Visa from "../Images/visa.svg";
 import Bitcoin from "../Images/bitcoin.svg";
-import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router";
 export default function Footer() {
+  const history = useHistory();
+  const privacy = () => {
+    history.push("/privacy-policy");
+  };
   return (
     <div>
       <footer>
@@ -67,9 +71,9 @@ export default function Footer() {
               <h6 className="mb-3">OUR COMPANY</h6>
               <ul className="text-g200">
                 <li>Delivery</li>
-                <NavLink to="/privacy-policy">
-                  <li>Legal Notice</li>
-                </NavLink>
+
+                <li onClick={privacy}>Legal Notice</li>
+
                 <li>About Us</li>
                 <li>Contact Us</li>
                 <li>Terms and conditions of use</li>
