@@ -27,7 +27,7 @@ export default function Footer() {
             </div>
             <div className="btn-search flex">
               <input
-                className="ipw-300 height-44 input-search w-100 mr-2"
+                className="ipw-300 height-44 input-search w-100 mr-2 px-2"
                 type="search"
               />
               <Button

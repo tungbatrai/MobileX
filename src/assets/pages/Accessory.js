@@ -322,7 +322,7 @@ export default function Accessory() {
                         </div>
                       </div>
                     </Tab>
-                    <Tab eventKey="2" title="Sạc pin">
+                    <Tab eventKey="2" title="Sạc">
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div>
                           <Card className="card-product">

@@ -27,7 +27,7 @@ export default function Header() {
               <NavLink to="/cart" className="header_search">
                 Cart
               </NavLink>
-            </div>
+            </div>  
           </div>
         </div>
         <div className="header_row_2 flex justify-center items-center">

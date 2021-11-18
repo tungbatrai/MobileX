@@ -25,8 +25,8 @@ export default function OrderSuccess() {
         </div>
         <div className="box-cart-detail font-14">
           <p>
-            Cảm ơn <span className="font-medium">anh Tùng</span> đã cho Thế Giới
-            Di Động cơ hội được phục vụ. Trong 15 phút, nhân viên MobileX sẽ{" "}
+            Cảm ơn <span className="font-medium">anh Tùng</span> đã cho MobileX
+            cơ hội được phục vụ. Trong 15 phút, nhân viên MobileX sẽ{" "}
             <span className="font-medium">
               gọi điện hoặc gửi tin nhắn xác nhận giao hàng
             </span>{" "}

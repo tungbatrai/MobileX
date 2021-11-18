@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import ReactReadMoreReadLess from "react-read-more-read-less";
 import {
   Breadcrumb,
-  Image,
-  InputGroup,
   Button,
-  Table,
-  ToggleButtonGroup,
-  ToggleButton,
-  ProgressBar,
   FloatingLabel,
   Form,
+  Image,
+  ProgressBar,
+  Table,
+  ToggleButton,
+  ToggleButtonGroup,
 } from "react-bootstrap";
 import ReactRating from "react-rating";
+import ReactReadMoreReadLess from "react-read-more-read-less";
+import { useHistory } from "react-router";
 import Slider from "react-slick";
 import Banner from "../Images/ip13.jpg";
 import Banner6 from "../Images/ip13blue.jpg";
@@ -20,11 +20,16 @@ import Product1 from "../Images/product1.jpg";
 import Product2 from "../Images/product2.jpg";
 import Product3 from "../Images/product3.jpg";
 export default function ProductDetail() {
-  const SVGIcon = (props) => (
-    <svg className={props.className} pointerEvents="none">
-      <use xlinkHref={props.href} />
-    </svg>
-  );
+  const [colorActive, setColorActive] = useState(null);
+  const history = useHistory();
+  const Cart = () => {
+    history.push("/cart");
+  };
+  // const SVGIcon = (props) => (
+  //   <svg className={props.className} pointerEvents="none">
+  //     <use xlinkHref={props.href} />
+  //   </svg>
+  // );
   const settings = {
     dots: true,
     infinite: true,
@@ -44,6 +49,12 @@ export default function ProductDetail() {
   function handleStart(e) {
     console.log(e);
   }
+  const colorArr = [
+    { name: "Red", classActive: "background-red" },
+    { name: "Yellow", classActive: "background-yellow" },
+    { name: "Blue", classActive: "background-blue" },
+    { name: "Black", classActive: "background-black" },
+  ];
   return (
     <div>
       <div className="product-detail-page">
@@ -84,7 +95,7 @@ export default function ProductDetail() {
                   className="radio-items grid grid-flow-col auto-cols-max gap-4"
                   type="radio"
                   name="options"
-                  defaultValue={1}
+                  defaultValue={2}
                 >
                   <ToggleButton id="tbg-radio-1" value={1}>
                     <div className="items-price">
@@ -108,22 +119,23 @@ export default function ProductDetail() {
                 </ToggleButtonGroup>
               </div>
               <div className="my-3 text-center text-md-left">
-                {" "}
-                <Button
-                  variant="border-g100"
-                  className="btw-46 font-12 mr-2 background-red"
-                >
-                  Red
-                </Button>
-                <Button variant="border-g100" className="btw-46 font-12 mr-2">
-                  Yellow
-                </Button>
-                <Button variant="border-g100" className="btw-46 font-12 mr-2">
-                  Black
-                </Button>
-                <Button variant="border-g100" className=" btw-46 font-12 mr-2">
-                  Blue
-                </Button>
+                {colorArr.map((item, index) => {
+                  return (
+                    <Button
+                      variant="border-g100"
+                      onClick={() => {
+                        setColorActive(index);
+                      }}
+                      className={
+                        colorActive === index
+                          ? `${item.classActive} btw-46 font-12 mr-2`
+                          : "btw-46 font-12 mr-2"
+                      }
+                    >
+                      {item.name}
+                    </Button>
+                  );
+                })}
               </div>
               <div className="radio-color"></div>
               <div className="box-promotion font-14">
@@ -158,6 +170,7 @@ export default function ProductDetail() {
               <Button
                 variant="r200"
                 className="btn-square w-100 btn-buy-now mt-3"
+                onClick={Cart}
               >
                 <h3 className="uppercase font-20">Mua ngay</h3>
                 <p className="font-13 m-0">
