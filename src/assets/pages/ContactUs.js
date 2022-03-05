@@ -69,7 +69,7 @@ export default function ContactUs() {
                 variant="r200"
                 className="btn-evaluate btn-square btw-130"
               >
-                <p className="font-13">Gửi đánh giá</p>
+                <p className="font-13">Gửi đánh giá </p>
               </Button>
             </div>
           </div>
