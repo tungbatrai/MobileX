@@ -1,10 +1,13 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import Header from "./assets/common/Header";
+import { Route, Switch } from "react-router-dom";
 import ProductDetail from "./assets/common/ProductDetail";
+import Login from "./assets/components/Account/Login";
+import Registration from "./assets/components/Account/Registration";
+import RePassword from "./assets/components/Account/RePassword";
 import Demo from "./assets/components/Demo";
 import OrderSuccess from "./assets/components/OrderSuccess";
 import Accessory from "./assets/pages/Accessory";
+import Account from "./assets/pages/Account";
 import Cart from "./assets/pages/Cart";
 import Catalog from "./assets/pages/Catalog";
 import Clock from "./assets/pages/Clock";
@@ -34,7 +37,6 @@ export default function Routes() {
         <Route path="/ordersuccess">
           <OrderSuccess />
         </Route>
-        <Route path="/login"></Route>
         <Route path="/catalog">
           <Catalog />
         </Route>
@@ -46,6 +48,18 @@ export default function Routes() {
         </Route>{" "}
         <Route path="/privacy-policy">
           <Privacy />
+        </Route>
+        <Route path="/account">
+          <Account />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/registration">
+          <Registration />
+        </Route>
+        <Route path="/Re-password">
+          <RePassword />
         </Route>
         <Route path="/">
           <Homepage />

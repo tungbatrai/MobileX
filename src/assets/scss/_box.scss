@@ -1,3 +1,6 @@
+.box-w580 {
+  @include box-fluid(580);
+}
 .modal-procut-detail {
   .modal-content {
     padding: 15px;

@@ -16,18 +16,20 @@ export default function Header() {
           </div>
           <div className="header_item_right col-4">
             <div>
-              <NavLink to="/" className="header_search">
-                Search
-              </NavLink>
+              <input
+                className="ipw-300 height-44 input-search w-100 mr-2 px-2"
+                type="search"
+                placeholder="Search..."
+              />
 
-              <NavLink to="/" className="header_search">
+              <NavLink to="account" className="header_search">
                 Account
               </NavLink>
 
               <NavLink to="/cart" className="header_search">
                 Cart
               </NavLink>
-            </div>  
+            </div>
           </div>
         </div>
         <div className="header_row_2 flex justify-center items-center">

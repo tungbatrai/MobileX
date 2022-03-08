@@ -160,3 +160,25 @@
   background: linear-gradient(180deg, #f79429, #f7712e);
   color: #fff;
 }
+.btn-account {
+  width: 280px;
+  height: 210px;
+  border: 2px solid #f2f4ff;
+  border-radius: 5px;
+  margin: 20px 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px;
+  a {
+    font-size: 18px;
+    margin: 0;
+    color: #343a40;
+  }
+  &:hover {
+    a {
+      color: #fff;
+    }
+  }
+}
