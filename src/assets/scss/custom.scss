@@ -1,3 +1,5 @@
+/** @format */
+
 .container_big {
   max-width: 1810px;
   margin-left: auto;
@@ -360,4 +362,28 @@
 .input-search {
   border: 1px solid #c8c9c7;
   border-radius: 10px;
+}
+
+.login-content {
+  border-radius: 30px;
+  height: 100%;
+  padding-top: 20px;
+  background-color: #fff;
+}
+
+.purple-square-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.purple-square {
+  // background-color: #B10DC9;
+  width: 95vh;
+  height: 400px;
+}
+.main-login {
+  height: 100vh;
+  background-color: #96c2d0;
 }

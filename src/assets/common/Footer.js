@@ -101,10 +101,10 @@ export default function Footer() {
                 </div>
               </div>
               <div>
-                <i class="mx-1 fa fa-facebook"></i>
-                <i class="mx-1 fa fa-twitter"></i>
-                <i class="mx-1 fa fa-instagram"></i>
-                <i class="mx-1 fa fa-youtube"></i>
+                <i className="mx-1 fa fa-facebook"></i>
+                <i className="mx-1 fa fa-twitter"></i>
+                <i className="mx-1 fa fa-instagram"></i>
+                <i className="mx-1 fa fa-youtube"></i>
               </div>
             </div>
           </div>
