@@ -26,7 +26,9 @@ export default function BestSeller() {
     },
   });
   useEffect(() => {
-    getData();
+    const timer = setTimeout(() => {
+      getData()
+    }, 1000);
   }, []);
   function getData() {
     HomeService.getProduct(dataFill).then((res) => {

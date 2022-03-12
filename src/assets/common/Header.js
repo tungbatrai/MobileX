@@ -1,9 +1,26 @@
-import React from "react";
+/** @format */
+
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { Image, Nav } from "react-bootstrap";
 import Logo from "../Images/logo.png";
+import { CommontService } from "../../services/CommontService";
+import { Link } from "react-router-dom";
 export default function Header() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getCategory();
+  }, []);
+  function getCategory() {
+    CommontService.getList().then((res) => {
+      if (res.status === 200) {
+        console.log("data", res.data.data);
+        setData(res.data);
+      }
+    });
+  }
   return (
     <div>
       <header className="page_container">
@@ -35,10 +52,19 @@ export default function Header() {
         <div className="header_row_2 flex justify-center items-center">
           <div className="container flex justify-center">
             <Nav variant="pills">
-              <Nav.Item>
+              {data?.data?.map((item, index) => {
+                return (
+                  <Nav.Item className="p-2">
+                    <Link style={{ color: "black" }} to={`/product/${item.id}`}>
+                      {item.name}
+                    </Link>
+                  </Nav.Item>
+                );
+              })}
+              {/* <Nav.Item>
                 <Nav.Link href="/catalog">Điện thoại</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
+              </Nav.Item> */}
+              {/* <Nav.Item>
                 <Nav.Link href="/laptop">Laptop</Nav.Link>
               </Nav.Item>
               <Nav.Item>
@@ -46,7 +72,7 @@ export default function Header() {
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link href="/accessory">Phụ kiện</Nav.Link>
-              </Nav.Item>
+              </Nav.Item> */}
               <Nav.Item>
                 <Nav.Link href="/contact-us" eventKey="contact">
                   Contact Us

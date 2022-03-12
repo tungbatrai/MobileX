@@ -28,7 +28,7 @@ export default function Routes() {
         <Route path="/Clock">
           <Clock />
         </Route>
-        <Route path="/laptop">
+        <Route path="/product/:id">
           <Laptop />
         </Route>
         <Route path="/cart">

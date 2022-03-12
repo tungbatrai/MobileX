@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import { Button, Image } from "react-bootstrap";
 import Apple from "../Images/apple.svg";
