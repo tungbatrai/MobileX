@@ -1,3 +1,5 @@
+/** @format */
+
 .btn {
   height: 44px;
   line-height: 42px;
@@ -102,6 +104,14 @@
 }
 .btn-primary:not(:disabled):not(.disabled):active:focus {
   box-shadow: none;
+}
+.btn-y600 {
+  border-color: $y600;
+  background-color: $y600;
+  color: #fff;
+  &:hover {
+    color: #fff;
+  }
 }
 .btn-b500 {
   border-color: $b500;

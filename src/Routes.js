@@ -13,7 +13,7 @@ import Catalog from "./assets/pages/Catalog";
 import Clock from "./assets/pages/Clock";
 import ContactUs from "./assets/pages/ContactUs";
 import Homepage from "./assets/pages/Homepage";
-import Laptop from "./assets/pages/Laptop";
+import Product from "./assets/pages/Product";
 import Privacy from "./assets/pages/Privacy";
 export default function Routes() {
   return (
@@ -29,7 +29,7 @@ export default function Routes() {
           <Clock />
         </Route>
         <Route path="/product/:id">
-          <Laptop />
+          <Product />
         </Route>
         <Route path="/cart">
           <Cart />
@@ -40,7 +40,7 @@ export default function Routes() {
         <Route path="/catalog">
           <Catalog />
         </Route>
-        <Route path="/product-detail">
+        <Route path="/product-detail/:id">
           <ProductDetail />
         </Route>
         <Route path="/contact-us">

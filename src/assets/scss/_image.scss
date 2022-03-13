@@ -22,6 +22,7 @@ img {
   width: 100%;
   padding-top: 66.66%; /* 3:2 Aspect Ratio */
   img {
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -31,4 +32,7 @@ img {
   @include media-breakpoint-down(md) {
     height: 100%;
   }
+}
+.image-slide {
+  height: 573px!important;
 }

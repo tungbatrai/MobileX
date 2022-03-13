@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import { Button, Image } from "react-bootstrap";
 import BannerHome from "../components/Homepage/BannerHome";
@@ -7,7 +9,7 @@ import Banner from "../Images/banner_1.png";
 import Banner6 from "../Images/banner6.jpg";
 export default function Homepage() {
   return (
-    <div className="homepage mb-5">
+    <div className="homepage ">
       <div className="banner_1">
         <BannerHome />
       </div>
@@ -86,6 +88,29 @@ export default function Homepage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="footer_newsletter_caption mt-5">
+        <div className="container grid grid-cols-1 md:grid-cols-2 gap-4  items-center ">
+          <div className="newsletter">
+            <div className="font-22">Get our latest news and special sales</div>
+            <p className="text">
+              You may unsubscribe at any moment. For that purpose, please find
+              our contact info in the legal notice.
+            </p>
+          </div>
+          <div className="btn-search flex">
+            <input
+              className="ipw-300 height-44 input-search w-100 mr-2 px-2"
+              type="search"
+            />
+            <Button
+              variant="b500"
+              className="btn-square btw-65 font-14 font-semibold"
+            >
+              GET
+            </Button>
           </div>
         </div>
       </div>

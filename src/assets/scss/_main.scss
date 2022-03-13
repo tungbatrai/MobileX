@@ -22,19 +22,27 @@ body {
   justify-content: space-between;
   min-height: 100vh;
 }
-.background-red {
-  background-color: red;
+.background-Red {
+  background-color: rgb(216, 85, 85);
   color: #fff !important;
 }
-.background-black {
+.background-Black {
   background-color: black;
   color: #fff !important;
 }
-.background-yellow {
-  background-color: yellow;
+.background-Yellow {
+  background-color: rgb(211, 162, 37);
   color: #fff !important;
 }
-.background-blue {
-  background-color: blue;
+.background-Blue {
+  background-color: rgba(65, 65, 192, 0.802);
+  color: #fff !important;
+}
+.background-Green {
+  background-color: green;
+  color: #fff !important;
+}
+.background-White {
+  background-color: rgba(255, 255, 255, 0.802);
   color: #fff !important;
 }

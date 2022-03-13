@@ -50,6 +50,7 @@
 .breadcrumb {
   background-color: white;
   padding: 0.75rem 0;
+  color :#485ad7
 }
 
 // cart product
@@ -131,7 +132,7 @@
 }
 .box-detail {
   .image {
-    height: 390px;
+   // height: 390px;
   }
 }
 
@@ -208,10 +209,11 @@
     border-radius: 4px;
     cursor: pointer;
     color: $g100;
-    background-color: $g50;
+    background-color: $g10;
     border: 0;
     height: 52px;
-    width: auto;
+    // width: auto;
+    width: 100%;
     &:hover {
       color: $g100;
     }
@@ -320,9 +322,10 @@
   color: blue;
 }
 .text-admin {
-  background-color: red;
-  padding: 2px 4px;
-  border-radius: 6px;
+  background-color: #3f496ab6;
+  color: #fff;
+  padding: 1px 4px;
+  border-radius: 4px;
 }
 
 //contact us
@@ -333,6 +336,7 @@
 
 // cart
 .cart-page {
+  min-height: 59vh;
   background-color: #f0f0f0;
   padding: 20px 0;
   .cart-image-product {
@@ -386,4 +390,29 @@
 .main-login {
   height: 100vh;
   background-color: #96c2d0;
+}
+
+.footer_newsletter_caption {
+  padding: 39px 0 35px;
+  background-color: #c8e4ff;
+}
+.newsletter {
+  .text {
+    margin: 19px 0 13px;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    max-width: 75%;
+    color: $g600;
+  }
+}
+
+.button-rom-active {
+  background-color: #8a97e9 !important;
+  color : #fff !important
+}
+.custom-cart {
+  min-height: 54vh;
+}
+.minhight {
+  min-height: 54vh;
 }
