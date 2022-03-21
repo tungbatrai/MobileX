@@ -213,7 +213,7 @@ export default function ProductDetail() {
   const [dataCommentSecond, setDataCommentSecond] = useState([]);
   const [dataCommentSecondRepName, setDataCommentSecondRepName] = useState();
   const [dataCommentSecondActive, setDataCommentSecondActive] = useState();
- // const [myCommentActive, setMyCommentActive] = useState(true);
+  // const [myCommentActive, setMyCommentActive] = useState(true);
   const [myCommentSecondActive, setMyCommentSecondActive] = useState(true);
   function CreateCommentSubmit() {
     //console.log(getValues(`comment.content`));
@@ -221,32 +221,39 @@ export default function ProductDetail() {
     let dataCreateComment = {
       user_id: token.data[0].id,
       product_id: id,
-      content: getValues(`comment.content`),
+      content: getValues(`comment`),
       reply_id: 0,
     };
-    // console.log(dataCreateComment);
     ProductDetailService.createCommentSecond(dataCreateComment).then((res) => {
       if (res.status === 200) {
         //window.location.reload(true);
         reset({
-          comment: '',
-        })
+          comment: "",
+        });
+        ProductDetailService.getComment(id).then((res) => {
+          if (res.status === 200) {
+            setDataComment(res.data.data);
+          }
+        });
       }
     });
   }
-  function CreateCommentSecondSubmit(useID) {
+  function CreateCommentSecondSubmit(idx) {
     //console.log(getValues(`comment.content`));
     const token = JSON.parse(localStorage.getItem("client_token"));
     let dataCreateScondComment = {
       user_id: token.data[0].id,
       product_id: id,
-      content: getValues(`commentSecond.content`),
-      reply_id: useID,
+      content: getValues(`commentSecond`),
+      reply_id: idx,
     };
     ProductDetailService.createCommentSecond(dataCreateScondComment).then(
       (res) => {
         if (res.status === 200) {
-          window.location.reload(true);
+          reset({
+            commentSecond: "",
+          });
+          getSecond(idx, dataCommentSecondActive);
         }
       }
     );
@@ -256,40 +263,12 @@ export default function ProductDetail() {
     ProductDetailService.getCommentSecond(id).then((res) => {
       if (res.status === 200) {
         console.log(res.data);
-        setDataCommentSecondActive(res.data?.data[0]?.reply_id);
+        setDataCommentSecondActive(id);
         setDataCommentSecond(res.data);
         setDataCommentSecondRepName(name);
       }
     });
   }
-  useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("client_token"));
-    if (dataComment) {
-      if (dataComment.length) {
-        dataComment?.map((item) => {
-          if (item.user_id == token.data[0].id) {
-          //  setMyCommentActive(false);
-          }
-        });
-      }
-    }
-  }, [dataComment]);
-
-  useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("client_token"));
-    if (dataCommentSecond) {
-      if (dataCommentSecond.data?.length) {
-        dataCommentSecond.data?.map((item) => {
-          if (item.user_id == token.data[0].id) {
-            setMyCommentSecondActive(false);
-          }
-        });
-      }
-    }
-  }, [dataCommentSecond]);
-  // function goCart () {
-  //   history.push("./cart")
-  // }
   return (
     <div>
       <div className="product-detail-page">
@@ -462,7 +441,7 @@ export default function ProductDetail() {
                     <div
                       dangerouslySetInnerHTML={{ __html: data?.description }}
                     />
-                  </p>{" "}
+                  </p>
                   <br />
                   {/* <ReactReadMoreReadLess
                     charLimit={200}
@@ -477,7 +456,6 @@ export default function ProductDetail() {
               </div>
               <div className="product-parameter  col-span-12 md:col-span-5">
                 <p>
-                  {" "}
                   <div
                     dangerouslySetInnerHTML={{ __html: data?.digital_detail }}
                   />
@@ -697,29 +675,31 @@ export default function ProductDetail() {
             {/* comment creat 1 */}
             <div className="box-answer-comment mt-5">
               <p className="font-20 font-medium">Hỏi & Đáp về {data?.name}</p>
-              {/* {myCommentActive && ( */}
-                <>
-                  <FloatingLabel
-                    controlId="floatingTextarea"
-                    className="relative"
+
+              <>
+                <FloatingLabel
+                  controlId="floatingTextarea"
+                  className="relative"
+                >
+                  <Form.Control
+                    as="textarea"
+                    placeholder="Câu hỏi"
+                    style={{ height: "80px" }}
+                    className="textarea-comment"
+                    onKeyUp={(e) => setValue(`comment`, e.target.value)}
+                    {...register(`comment`, {
+                      value: "",
+                    })}
+                  />
+                  <Button
+                    variant="r200"
+                    className="btn-evaluate btn-square btw-130 col-4 col-md-2"
+                    onClick={() => CreateCommentSubmit()}
                   >
-                    <Form.Control
-                      as="textarea"
-                      placeholder="Câu hỏi"
-                      style={{ height: "80px" }}
-                      className="textarea-comment"
-                      {...register(`comment.content`, {})}
-                    />
-                    <Button
-                      variant="r200"
-                      className="btn-evaluate btn-square btw-130 col-4 col-md-2"
-                      onClick={() => CreateCommentSubmit()}
-                    >
-                      <p className="font-13">Gửi bình luận</p>
-                    </Button>
-                  </FloatingLabel>
-                </>
-              {/* )} */}
+                    <p className="font-13">Gửi bình luận</p>
+                  </Button>
+                </FloatingLabel>
+              </>
 
               {/* comment */}
               {dataComment?.map((item, index) => {
@@ -745,17 +725,17 @@ export default function ProductDetail() {
                             date={item.time_comment}
                           />
                         </span>
-                      </p>{" "}
+                      </p>
                       <p className="font-16 text-g100 m-0">{item.content}</p>
                       <Button
                         variant="link"
                         className="btn-square btw-65-answer"
-                        onClick={() => getSecond(item.user_id, item.user_name)}
+                        onClick={() => getSecond(item.id, item.user_name)}
                       >
                         <p className="font-14">Trả lời</p>
                       </Button>
                       <>
-                        {dataCommentSecondActive === item.user_id && (
+                        {dataCommentSecondActive === item.id && (
                           <div>
                             {dataCommentSecond?.data?.map(
                               (itemSecond, idSecond) => {
@@ -766,7 +746,7 @@ export default function ProductDetail() {
                                   >
                                     <span className="text-admin  ml-0">
                                       Rep
-                                    </span>{" "}
+                                    </span>
                                     : {dataCommentSecondRepName}
                                     <p className="font-18 ml-3 d-flex items-center">
                                       {itemSecond.user_name}
@@ -777,7 +757,7 @@ export default function ProductDetail() {
                                           date={itemSecond.time_comment}
                                         />
                                       </span>
-                                    </p>{" "}
+                                    </p>
                                     <p className="font-16 text-g100 ml-3">
                                       {itemSecond.content}
                                     </p>
@@ -785,32 +765,35 @@ export default function ProductDetail() {
                                 );
                               }
                             )}
-                            {myCommentSecondActive && (
-                              <>
-                                {" "}
-                                <FloatingLabel
-                                  controlId="floatingTextarea"
-                                  className="relative mt-4"
+
+                            <>
+                              <FloatingLabel
+                                controlId="floatingTextarea"
+                                className="relative mt-4"
+                              >
+                                <Form.Control
+                                  as="textarea"
+                                  placeholder="Câu hỏi"
+                                  style={{ height: "80px" }}
+                                  className="textarea-comment"
+                                  onKeyUp={(e) =>
+                                    setValue(`commentSecond`, e.target.value)
+                                  }
+                                  {...register(`commentSecond`, {
+                                    value: "",
+                                  })}
+                                />
+                                <Button
+                                  variant="r200"
+                                  className="btn-evaluate btn-square btw-120 col-4 col-md-2"
+                                  onClick={() =>
+                                    CreateCommentSecondSubmit(item.id)
+                                  }
                                 >
-                                  <Form.Control
-                                    as="textarea"
-                                    placeholder="Câu hỏi"
-                                    style={{ height: "80px" }}
-                                    className="textarea-comment"
-                                    {...register(`commentSecond.content`, {})}
-                                  />
-                                  <Button
-                                    variant="r200"
-                                    className="btn-evaluate btn-square btw-120 col-4 col-md-2"
-                                    onClick={() =>
-                                      CreateCommentSecondSubmit(item.user_id)
-                                    }
-                                  >
-                                    <p className="font-13">Viết câu hỏi</p>
-                                  </Button>
-                                </FloatingLabel>
-                              </>
-                            )}
+                                  <p className="font-13">Viết câu hỏi</p>
+                                </Button>
+                              </FloatingLabel>
+                            </>
                           </div>
                         )}
                       </>

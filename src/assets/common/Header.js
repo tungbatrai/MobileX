@@ -48,7 +48,7 @@ export default function Header() {
               </NavLink>
 
               <NavLink to="/cart" className="header_search">
-                Giỏ <span className="cart">{count}</span>
+                Giỏ <span className="cart">{count>0 && ( <>{count}</>)}</span>
               </NavLink>
             </div>
           </div>
