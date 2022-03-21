@@ -13,47 +13,37 @@ export default function Footer() {
   const privacy = () => {
     history.push("/privacy-policy");
   };
+  const contact = () => {
+    history.push("/contact-us");
+  };
   return (
     <div>
       <footer>
         <div className="footer_main">
-          <div class="footer-contact grid grid-rows-4 md:grid-rows-1 grid-flow-col gap-4">
+          <div className="footer-contact grid grid-rows-4 md:grid-rows-1 grid-flow-col gap-4">
             <div>
-              <h6 className="mb-3">YOUR ACCOUNT</h6>
+              <h6 className="mb-3">Thông tin cơ bản </h6>
               <ul className="text-g200">
-                <li>Personal info</li>
-                <li>Orders</li>
-                <li>Credit slips</li>
-                <li>Addresses</li>
+                <li>
+                  Hoạt động : Từ thứ 2 đến thứ 6 tất cả các ngày trong năm
+                </li>
+                <li>Thời gian mở / đóng cửa : 8am - 8.30pm </li>
+                <li>03337543322</li>
+                <li>shopmobiest@gmail.com</li>
               </ul>
             </div>
             <div>
-              <h6 className="mb-3">CUSTOMER SERVICE</h6>
+              <h6 className="mb-3">CAM ĐOAN</h6>
               <ul className="text-g200">
-                <li>Monday to Friday</li>
-                <li>10am - 6.30pm (NewYork time)</li>
-                <li>+(001) 23 45 67 89</li>
-                <li>shopify@zemez.io</li>
+                <li>Vận chuyển dưới 5 ngày</li>
+                <li>Miễn phí đổi trả trong 15 ngày 1 đổi 1</li>
               </ul>
             </div>
             <div>
-              <h6 className="mb-3">OUR GUARANTEES</h6>
+              <h6 className="mb-3"> CHĂM SÓC KHÁCH HÀNG</h6>
               <ul className="text-g200">
-                <li>Shipping in 3 days</li>
-                <li>Free returns within 14 days</li>
-                <li>Secure payments</li>
-              </ul>
-            </div>
-            <div>
-              <h6 className="mb-3">OUR COMPANY</h6>
-              <ul className="text-g200">
-                <li>Delivery</li>
-
                 <li onClick={privacy}>Legal Notice</li>
-
-                <li>About Us</li>
-                <li>Contact Us</li>
-                <li>Terms and conditions of use</li>
+                <li onClick={contact}>About Us</li>
               </ul>
             </div>
           </div>

@@ -30,7 +30,7 @@ export default function Account() {
               className="btn-account"
               onClick={goLogin}
             >
-              <i class="fa fa-user-o fa-3x" aria-hidden="true"></i>
+              <i className="fa fa-user-o fa-3x" aria-hidden="true"></i>
               Login
             </Button>
             <Button
@@ -38,7 +38,7 @@ export default function Account() {
               className="btn-account"
               onClick={Registration}
             >
-              <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+              <i className="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
               Registration
             </Button>
           </div>
@@ -48,7 +48,7 @@ export default function Account() {
               className="btn-account"
               onClick={RePassword}
             >
-              <i class="fa fa-address-card-o fa-3x" aria-hidden="true"></i>
+              <i className="fa fa-address-card-o fa-3x" aria-hidden="true"></i>
               Restore Password
             </Button>
           </div>

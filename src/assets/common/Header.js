@@ -14,11 +14,11 @@ export default function Header() {
   const [breadcrumb, setBreadcrumb] = useState();
   useEffect(() => {
     getCategory();
-  }, []);
+  }, [breadcrumb]);
   function getCategory() {
     CommontService.getList().then((res) => {
       if (res.status === 200) {
-       // console.log("data", res.data.data);
+        // console.log("data", res.data.data);
         setData(res.data);
       }
     });
@@ -27,26 +27,28 @@ export default function Header() {
     <div>
       <header className="page_container">
         <div className="header_row_1 row mx-0">
-          <div className="col-4"></div>
-          <div className="flex justify-center col-4">
+          <div className="col-5"></div>
+          <div className="flex justify-center col-2">
             <NavLink to="/" className="header_logo">
               <Image src={Logo} alt="Shop Logo" />
             </NavLink>
           </div>
-          <div className="header_item_right col-4">
+          <div className="header_item_right col-5">
             <div>
               <input
                 className="ipw-300 height-44 input-search w-100 mr-2 px-2"
                 type="search"
                 placeholder="Search..."
               />
-
+              <NavLink to="my-order" className="header_search">
+                Đơn hàng 
+              </NavLink>
               <NavLink to="account" className="header_search">
-                Account
+                Tài khoản
               </NavLink>
 
               <NavLink to="/cart" className="header_search">
-                Cart {count}
+                Giỏ <span className="cart">{count}</span>
               </NavLink>
             </div>
           </div>

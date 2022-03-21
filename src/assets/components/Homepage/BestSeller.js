@@ -56,19 +56,45 @@ export default function BestSeller() {
                     </Link>
 
                     <Card.Body className="card-product-body">
-                      <p className="font-medium">
+                      <p className="font-medium mb-0">
                         {" "}
                         {item.category_name} - {item.brand_name}{" "}
                       </p>
-                      <p className="font-22 text-b500 font-medium">
+                      <p className="font-22 text-b500 font-medium mb-0">
+                        <span className="text-black"> Tên sản phẩm :</span>{" "}
                         {item.name}
                       </p>
-                      <Button
-                        variant="b500"
-                        className="btw-130 btn-square font-11"
-                      >
-                        ADD TO CART
-                      </Button>
+                      <p className="font-15 text-b500 font-medium mb-0">
+                        {item.total_quantity && item.total_quantity > 0 && (
+                          <>
+                            Số lượng :{" "}
+                            <span className="text-r300">
+                              {" "}
+                              {item.total_quantity}
+                            </span>
+                          </>
+                        )}
+                      </p>
+                      {(item.total_quantity && item.total_quantity) > 0 ? (
+                        <>
+                          <Button
+                            variant="b500"
+                            className="btw-130 btn-square font-11"
+                          >
+                            Đang có sẵn
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          {" "}
+                          <Button
+                            variant="b500"
+                            className="btw-130 btn-square font-11"
+                          >
+                            Hết hàng
+                          </Button>
+                        </>
+                      )}
                     </Card.Body>
                   </Card>
                 </div>

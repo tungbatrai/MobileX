@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState } from "react";
 import { Button, FloatingLabel, Form, Image, Modal } from "react-bootstrap";
 import { useHistory } from "react-router";
@@ -14,6 +16,9 @@ export default function OrderSuccess() {
   };
   const home = () => {
     history.push("/");
+  };
+  const formatPrice = (value) => {
+    return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
   };
   return (
     <div className="cart-page">
@@ -40,87 +45,23 @@ export default function OrderSuccess() {
             </p>
             <p>
               - <span className="font-medium">Giao đến : </span>
-              số 5 ngõ 395, Phường Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội (nhân
-              viên sẽ gọi xác nhận trước khi giao).
+              19 Lê Văn Lương , Thanh Xuân , Hà Nội
             </p>
             <p>
               - <span className="font-medium">Tổng tiền : </span>
-              <span className="text-r300 m-0"> 43.990.000₫</span>
+              <span className="text-r300 m-0">{formatPrice(23000000)}₫</span>
             </p>
-          </div>
-        </div>
-        <div className="box-cart-detail">
-          <h4 className="font-14 uppercase mb-4">chọn hình thức thanh toán</h4>
-          <div className="grid grid-cols-2 gap-3">
-            <div>
-              <Button
-                variant="b500"
-                className="btn-square w-100 font-14 font-semibold"
-              >
-                Tiền mặt
-              </Button>
-            </div>
-            <div>
-              <Button
-                variant="b500"
-                className="btn-square w-100 font-14 font-semibold"
-              >
-                Thẻ ATM
-              </Button>
-            </div>
-            <div>
-              <Button
-                variant="b500"
-                className="btn-square w-100  font-14 font-semibold"
-              >
-                Thẻ ngân hàng
-              </Button>
-            </div>
-            <div>
-              <Button
-                variant="b500"
-                className="btn-square w-100 font-14 font-semibold"
-              >
-                Chuyển khoản
-              </Button>
-            </div>
-          </div>
-          <p
-            className="font-14 text-blue-500 text-center mt-3"
+            <p
+            className="font-14 text-blue-500  mt-3"
             onClick={handleShow}
           >
             Hủy đơn hàng
           </p>
-        </div>
-        <div className="box-cart-detail">
-          <h4 className="font-14 uppercase mb-4">thời gian nhận hàng</h4>
-          <div className="box-choose-content">
-            <p className="font-14">Giao trước 11h00 Hôm nay (17/11)</p>
-            <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-4 md:col-span-2">
-                <div className="cart-image-product">
-                  <Image src={Banner} alt="banner" />
-                </div>
-              </div>
-              <div className="col-span-8 md:col-span-10">
-                <h4 className="font-14 font-medium m-0">
-                  Điện thoại Samsung Galaxy Z Flip3 5G 256GB
-                </h4>
-                <div className="font-14 grid grid-cols-2 gap-2 mt-2">
-                  <p>
-                    Màu: <span>Xanh Dương</span>{" "}
-                  </p>
-                  <p>
-                    Số Lượng: <span>1</span>{" "}
-                  </p>
-                </div>
-                <div className="font-14 grid grid-cols-2 gap-3">
-                  <p>Tổng tiền:</p>
-                  <p className="font-14 text-r300 m-0">26.990.000đ</p>
-                </div>
-              </div>
-            </div>
           </div>
+        </div>
+
+        <div className="box-cart-detail">
+        
           <Button
             variant="submitorder"
             className="btn-square w-100 font-14 uppercase font-bold my-3"
@@ -140,54 +81,8 @@ export default function OrderSuccess() {
       >
         <div className="font-14">
           <h4 className="font-16 uppercase mb-4">hủy đơn hàng</h4>
-          <p>
-            MobileX mong nhận được sự góp ý của chị để phục vụ được tốt hơn.
-          </p>
-          <Form>
-            {["radio"].map((type) => (
-              <div key={`inline-${type}`}>
-                <Form.Check
-                  inline
-                  label="Đổi ý, không mua nữa"
-                  name="group1"
-                  type={type}
-                  className="mb-2"
-                  // id={`inline-${type}-1`}
-                />
-                <Form.Check
-                  inline
-                  label="Tìm thấy giá rẻ hơn ở chỗ khác"
-                  name="group1"
-                  type={type}
-                  className="mb-2"
-                  // id={`inline-${type}-1`}
-                />
-                <Form.Check
-                  inline
-                  label="Muốn thay đổi sản phẩm trong đơn hàng (màu sắc, số lượng,...)"
-                  name="group1"
-                  type={type}
-                  className="mb-2"
-                  // id={`inline-${type}-1`}
-                />
-                <Form.Check
-                  inline
-                  label="Lý do khác"
-                  name="group1"
-                  type={type}
-                  className="mb-2"
-                  // id={`inline-${type}-1`}
-                />
-              </div>
-            ))}
-          </Form>
-          <FloatingLabel controlId="floatingTextarea" className="mb-3">
-            <Form.Control
-              as="textarea"
-              placeholder="Nhập lý do khác"
-              style={{ height: "100px" }}
-            />
-          </FloatingLabel>
+          <p>Bạn có muốn hủy đơn hàng ?</p>
+
           <div className="grid grid-cols-2 gap-3 mb-3">
             <div>
               <Button
@@ -208,14 +103,6 @@ export default function OrderSuccess() {
               </Button>
             </div>
           </div>
-
-          <p className="italic m-1">Lưu ý</p>
-          <p className="italic m-1">
-            - Quà khuyến mãi có thể thay đổi theo thời điểm đặt hàng.
-          </p>
-          <p className="italic m-1">
-            - Phiếu điểm sẽ được hoàn lại vào SĐT mua hàng (nếu có).
-          </p>
         </div>
       </Modal>
     </div>

@@ -3,10 +3,13 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Image, Tab, Tabs } from "react-bootstrap";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import Banner from "../Images/banner2.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { updatequantity } from "../common/actions";
 import { cartService } from "../../services/cartService";
+
+import empty_cart from "../Images/empty_cart.jpg";
 export default function Cart() {
   const history = useHistory();
   const orderSubmit = () => {
@@ -27,7 +30,7 @@ export default function Cart() {
       });
     });
 
-     history.push("/ordersuccess");
+    history.push("/ordersuccess");
   };
   const [number, setNumber] = useState(1);
   const product = useSelector((state) => state.Cart);
@@ -87,6 +90,10 @@ export default function Cart() {
       updateQuantity: quantity,
     });
   };
+
+  const formatPrice = (value) => {
+    return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+  };
   return (
     <div className="cart-page">
       <div className="box-cart custom-cart">
@@ -105,56 +112,35 @@ export default function Cart() {
                     <div className="col-span-9 md:col-span-10">
                       <div className="flex justify-between items-center">
                         <h4 className="font-14 font-medium m-0">
-                          {item.product.name}
+                          Tên sản phẩm : {item.product.name}
                         </h4>
                         <p className="font-14 text-r300 m-0">
                           {" "}
-                          {item.product.price}
+                          Giá : {item.product.price}
                         </p>
                         <div onClick={() => removeItem(index)}>X</div>
                       </div>
 
                       <div className="flex justify-between my-3">
-                        {item.product.color}
-                        <div className="choosenumber">
-                          {/* <button
-                            disabled={item.quantity <= 1 ? true : false}
-                            onClick={() => {
-                              handleSub(item.quantity, index);
-                            }}
-                          >
-                            <div className="btn-up-down ">&#8722;</div>
-                          </button>
-                          <input
-                            className="input-number"
-                            value={item.quantity}
-                            readOnly
-                          />
-                          <button
-                            onClick={() => {
-                              handleAdd(item.quantity, item.product.id);
-                            }}
-                          > */}
-                          {/*                      
-                            <div className="btn-up-down">&#43;</div>
-                          </button> */}
-
-                          <input
-                            type="number"
-                            className="form-control w-50 ml-3 font-weight-bold  font-italic"
-                            min="0"
-                            defaultValue={item.quantity}
-                            onChange={(e) => {
-                              updateQuantity(e, item.product.id);
-                            }}
-                          />
-                        </div>
+                        Màu sắc : {item.product.color}
+                      </div>
+                      <div className="row">
+                        <div className="col-3 mt-3"> Số lượng :</div>
+                        <input
+                          type="number"
+                          className="form-control w-50 ml-3 font-weight-bold  font-italic"
+                          min="0"
+                          defaultValue={item.quantity}
+                          onChange={(e) => {
+                            updateQuantity(e, item.product.id);
+                          }}
+                        />
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex justify-between">
-                    <p className="font-14">
+                  <div className="row mt-5">
+                    <p className="font-14 col-4">
                       Tạm tính ({item.quantity} sản phẩm):
                     </p>
                     <p className="font-14 text-r300 p-0">
@@ -169,7 +155,12 @@ export default function Cart() {
           <>
             {" "}
             <div className="px-4 py-4 minhight text-center">
-              Bạn chưa mua hàng{" "}
+              Bạn chưa mua hàng
+              <Link to="/">
+                {" "}
+                <Image src={empty_cart} alt="banner" />
+                Trở về trang chủ
+              </Link>
             </div>
           </>
         )}
@@ -178,40 +169,27 @@ export default function Cart() {
           <>
             {" "}
             <div className="box-cart-detail ">
-              {/* <div className="uppercase mb-2"> THÔNG TIN KHÁCH HÀNG</div>
-          <Form>
-            {["radio"].map((type) => (
-              <div key={`inline-${type}`} className="mb-3">
-                <Form.Check
-                  inline
-                  label="Anh"
-                  name="group1"
-                  type={type}
-                  id={`inline-${type}-1`}
-                />
-                <Form.Check
-                  inline
-                  label="Chị"
-                  name="group1"
-                  type={type}
-                  id={`inline-${type}-2`}
-                />
-              </div>
-            ))}
-          </Form>
-          <Form className="grid grid-rows-1 grid-flow-col gap-4">
-            <Form.Group controlId="formBasicName">
-              <Form.Control type="name" placeholder="Họ và tên" className="" />
-            </Form.Group>
+              <div className="uppercase mb-2"> THÔNG TIN KHÁCH HÀNG</div>
 
-            <Form.Group controlId="formBasicPhone">
-              <Form.Control
-                type="phone"
-                placeholder="Số Điện Thoại"
-                className=""
-              />
-            </Form.Group>
-          </Form> */}
+              <Form>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Label>Số Điện Thoại</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="Mời nhập số điện thoại"
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlTextarea1"
+                >
+                  <Form.Label>Địa chỉ</Form.Label>
+                  <Form.Control as="textarea" rows={3}  placeholder="Mời nhập địa chỉ "/>
+                </Form.Group>
+              </Form>
               {/* <div className="tab-choose mt-4">
             <div className="uppercase mb-3"> CHỌN CÁCH THỨC NHẬN HÀNG</div>
             <Tabs
@@ -281,11 +259,11 @@ export default function Cart() {
                 className=" mt-4"
               />
             </Form.Group>
-          </div> */}
+          </div>  */}
               <div className="tab-choose mt-4">
                 <div className="flex justify-between">
                   <p className="font-16 font-semibold m-0">Tổng tiền:</p>
-                  <p className="font-14 text-r300 m-0">26.990.000đ</p>
+                  <p className="font-14 text-r300 m-0">{formatPrice(23000000)}đ</p>
                 </div>
                 <Button
                   variant="submitorder"

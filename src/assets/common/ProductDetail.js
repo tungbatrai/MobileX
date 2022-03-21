@@ -8,6 +8,7 @@ import {
   Form,
   Image,
   ProgressBar,
+  Table,
 } from "react-bootstrap";
 import ReactRating from "react-rating";
 import ReactReadMoreReadLess from "react-read-more-read-less";
@@ -69,19 +70,16 @@ export default function ProductDetail() {
     { name: "White", classActive: "background-white" },
   ];
   const addCart = () => {
-    console.log(productTypeActive)
+    console.log(productTypeActive);
     let dataCart = {
-       name: data.name,
-       id : productTypeActive.id,
-      // color: ActiveColor,
-      // // rom: "128GB",
-      image :productTypeActive.image,
-       price: productTypeActive.price,
-       color :productTypeActive.color
-     // ProductDetail: productTypeActive,
-   
+      name: data.name,
+      id: productTypeActive.id,
+      image: productTypeActive.image,
+      price: productTypeActive.price,
+      color: productTypeActive.color,
+      // ProductDetail: productTypeActive,
     };
-    console.log(dataCart)
+    console.log(dataCart);
     dispatch({
       type: "ADDTOCART",
       newItem: dataCart,
@@ -99,7 +97,7 @@ export default function ProductDetail() {
   function getDetail() {
     ProductDetailService.getDetail(id).then((res) => {
       if (res.status === 200) {
-       // console.log(res.data.data[0]);
+        console.log(res.data.data[0]);
         setData(res.data.data[0]);
       }
     });
@@ -110,7 +108,7 @@ export default function ProductDetail() {
         setActivePrice(res.data?.data[0]?.price);
         setColorActive(0);
         setActiveColor(res.data?.data[0]?.color);
-        setProductTypeActive(res.data?.data[0])
+        setProductTypeActive(res.data?.data[0]);
       }
     });
     ProductDetailService.getComment(id).then((res) => {
@@ -121,7 +119,6 @@ export default function ProductDetail() {
     ProductDetailService.getRating(id).then((res) => {
       if (res.status === 200) {
         setDataRating(res.data.data);
-      
       }
     });
   }
@@ -129,17 +126,16 @@ export default function ProductDetail() {
   function hanndleSelect(index, item) {
     setActiveRom(index);
     setActivePrice(item.price);
-    setProductTypeActive()
+    setProductTypeActive();
     document.getElementById(`color-${index}`).click();
-    setProductTypeActive(dataType[index])
+    setProductTypeActive(dataType[index]);
   }
   function handleColor(item, index) {
     setColorActive(index);
     // setActivePrice(item.price);
     document.getElementById(`rom-${index}`).click();
     setActiveColor(item.color);
-    setProductTypeActive(dataType[index])
-   
+    setProductTypeActive(dataType[index]);
   }
   function onSubmit(data) {
     // const Cart = () => {
@@ -323,12 +319,19 @@ export default function ProductDetail() {
                 </Slider>
               </div>
               <div className="product-information">
-                <h3 className="price text-center text-md-left">
-                  {/* {formatPrice(ActivePrice)} */}
-                  {ActivePrice} đ{/* <span>36.990.000đ</span> */}
+                <h3 className=" text-center text-md-left font-20 ">
+                  {/* {formatPrice(ActivePrice)} */}O Mặt hàng :
+                  <span className="text-b500"> {data?.name} đ</span>
+                  {/* <span>36.990.000đ</span> */}
+                </h3>
+                <h3 className="price text-center text-md-left text-g700">
+                  {/* {formatPrice(ActivePrice)} */} Giá cuối :
+                  <span className=""> {ActivePrice} đ</span>
+                  {/* <span>36.990.000đ</span> */}
                 </h3>
                 <div className="radio-price">
-                  <div className="row radio-items grid grid-flow-col auto-cols-max gap-4">
+                  <div> OThông số :</div>
+                  <div className="row radio-items grid grid-flow-col auto-cols-max gap-4 ml-2">
                     {dataType?.map((item, index) => {
                       return (
                         <div className="col-4" key={index}>
@@ -351,7 +354,7 @@ export default function ProductDetail() {
                     })}
                   </div>
                 </div>
-
+                <div className="mt-2">O Màu sắc</div>
                 <div className="my-3 text-center text-md-left">
                   {dataType.map((item, index) => {
                     return (
@@ -374,24 +377,24 @@ export default function ProductDetail() {
                 </div>
                 <div className="radio-color"></div>
                 <div className="box-promotion font-14">
-                  <div class="promotion-title">
+                  <div className="promotion-title">
                     Nhận ngay khuyến mại đặc biệt
                   </div>
                   <div className="promotion-list">
                     <p>
-                      <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                      <i className="fa fa-check-circle-o" aria-hidden="true"></i>
                       Trả góp 0%
                     </p>
                     <p>
-                      <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                      <i className="fa fa-check-circle-o" aria-hidden="true"></i>
                       Tặng bảo hành 2 năm
                     </p>
                     <p>
-                      <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                      <i className="fa fa-check-circle-o" aria-hidden="true"></i>
                       Tặng eSim Thần Tám 79 Itel 1T Data khủng 90GB
                     </p>
                     <p>
-                      <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                      <i className="fa fa-check-circle-o" aria-hidden="true"></i>
                       Giảm sốc 50% cho gói bảo hành vàng chỉ từ 550.000đ
                     </p>
                   </div>
@@ -445,8 +448,9 @@ export default function ProductDetail() {
                 <div className="mt-5">
                   <h3 className="font-20 font-medium text-center mb-4">
                     Đánh giá chi tiết {data?.name}
+                    
                   </h3>
-                  <b className="g500 title-header">{data?.description}</b>{" "}
+                  <p className="g500 title-header"><div dangerouslySetInnerHTML={{ __html: data?.description  }} /></p>{" "}
                   <br />
                   {/* <ReactReadMoreReadLess
                     charLimit={200}
@@ -460,63 +464,12 @@ export default function ProductDetail() {
                 </div>
               </div>
               <div className="product-parameter  col-span-12 md:col-span-5">
-                <p> {data?.digital_detail}</p>
-                <>
-                  {/* <Table striped bordered hover>
-                    <tbody className="font-14">
-                      <tr>
-                        <td>Màn hình</td>
-                        <td>
-                          @6.7", Super Retina XDR, OLED, 2778 x 1284 Pixel
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Camera sau</td>
-                        <td>@12.0 MP + 12.0 MP + 12.0 MP</td>
-                      </tr>
-                      <tr>
-                        <td>RAM </td>
-                        <td>@12.0 MP</td>
-                      </tr>
-                      <tr>
-                        <td>RAM </td>
-                        <td>6 GB</td>
-                      </tr>
-                      <tr>
-                        <td>Bộ nhớ trong </td>
-                        <td>128 GB</td>
-                      </tr>
-                      <tr>
-                        <td>CPU </td>
-                        <td>A15 Bionic</td>
-                      </tr>
-                      <tr>
-                        <td>GPU </td>
-                        <td>Apple GPU 5 nhân</td>
-                      </tr>
-                      <tr>
-                        <td>Dung lượng pin </td>
-                        <td>4352 mAh</td>
-                      </tr>
-                      <tr>
-                        <td>Thẻ sim </td>
-                        <td>2, 1 eSIM, 1 Nano SIM</td>
-                      </tr>
-                      <tr>
-                        <td>Hệ điều hành </td>
-                        <td>iOS 15</td>
-                      </tr>
-                      <tr>
-                        <td>Xuất xứ </td>
-                        <td> Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>Ra mắt </td>
-                        <td>09/2021</td>
-                      </tr>
-                    </tbody>
-                  </Table> */}
-                </>
+                <p>
+                  {" "}
+                  <div
+                    dangerouslySetInnerHTML={{ __html: data?.digital_detail }}
+                  />
+                </p>
               </div>
             </div>
             <div className="product-rating mt-5">
@@ -546,7 +499,7 @@ export default function ProductDetail() {
                   <div>
                     <div className="row mx-n1 items-center">
                       <div className="col-3 px-1 ">
-                        5 <i class="fa fa-star"></i>
+                        5 <i className="fa fa-star"></i>
                       </div>
                       <div className="col-9 px-1">
                         <ProgressBar
@@ -558,7 +511,7 @@ export default function ProductDetail() {
                     </div>
                     <div className="row mx-n1 items-center">
                       <div className="col-3 px-1">
-                        4 <i class="fa fa-star"></i>
+                        4 <i className="fa fa-star"></i>
                       </div>
                       <div className="col-9 px-1">
                         <ProgressBar
@@ -570,7 +523,7 @@ export default function ProductDetail() {
                     </div>
                     <div className="row mx-n1 items-center">
                       <div className="col-3 px-1">
-                        3 <i class="fa fa-star"></i>
+                        3 <i className="fa fa-star"></i>
                       </div>
                       <div className="col-9 px-1">
                         <ProgressBar
@@ -582,7 +535,7 @@ export default function ProductDetail() {
                     </div>
                     <div className="row mx-n1 items-center">
                       <div className="col-3 px-1">
-                        2 <i class="fa fa-star"></i>
+                        2 <i className="fa fa-star"></i>
                       </div>
                       <div className="col-9 px-1">
                         <ProgressBar
@@ -594,7 +547,7 @@ export default function ProductDetail() {
                     </div>
                     <div className="row mx-n1 items-center">
                       <div className="col-3 px-1">
-                        1 <i class="fa fa-star ml-1"></i>
+                        1 <i className="fa fa-star ml-1"></i>
                       </div>
                       <div className="col-9 px-1">
                         <ProgressBar
@@ -748,7 +701,7 @@ export default function ProductDetail() {
                       className="btn-evaluate btn-square btw-130 col-4 col-md-2"
                       onClick={() => CreateCommentSubmit()}
                     >
-                      <p className="font-13">Gửi đánh giá</p>
+                      <p className="font-13">Gửi bình luận</p>
                     </Button>
                   </FloatingLabel>
                 </>

@@ -39,7 +39,7 @@ export default function Homepage() {
           </div>
         </div>
       </div>
-      <div className="mt-5">
+      <div className="mt-5 mb-5">
         <BestSeller />
       </div>
       <div className="banner_3">
@@ -91,7 +91,7 @@ export default function Homepage() {
           </div>
         </div>
       </div>
-      <div className="footer_newsletter_caption mt-5">
+      {/* <div className="footer_newsletter_caption mt-5">
         <div className="container grid grid-cols-1 md:grid-cols-2 gap-4  items-center ">
           <div className="newsletter">
             <div className="font-22">Get our latest news and special sales</div>
@@ -113,7 +113,7 @@ export default function Homepage() {
             </Button>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

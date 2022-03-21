@@ -11,10 +11,6 @@ import {
   Tab,
   Tabs,
 } from "react-bootstrap";
-import Banner from "../Images/banner2.jpg";
-import Apple from "../Images/ip13blue.jpg";
-import Oppo from "../Images/oppo.jpg";
-import Samsung from "../Images/samsung.jpg";
 import PaginationSection from "../common/PaginationSection";
 import { useParams, Link, useHistory } from "react-router-dom";
 import { ProductService } from "../../services/ProductService";
@@ -47,10 +43,11 @@ export default function Product() {
     category_id: "",
     brand_id: "",
   });
+
   useEffect(() => {
     const timer = setTimeout(() => {
       getBrand();
-      setBrandSetup(true)
+      setBrandSetup(true);
     }, 1000);
   }, []);
   useEffect(() => {
@@ -59,18 +56,20 @@ export default function Product() {
         ...dataFill,
         category_id: id,
       });
+      setLoadBrand(true);
     }
   }, [id]);
   function getBrand() {
     ProductService.getBrand().then((res) => {
       if (res.status === 200) {
         console.log("brand", id, res.data.data);
-        setBran(res.data);
-        setLoadBrand(true);
+        let dataRv = res.data.data.reverse();
+        setBran(dataRv);
+
         setDataFill({
           ...dataFill,
           // category_id: id,
-          brand_id: res.data.data[0].id,
+          brand_id: dataRv[0].id,
         });
       }
     });
@@ -90,10 +89,10 @@ export default function Product() {
     });
   }
   function handeGoBrand(e) {
-    console.log(e, brand.data[e]);
+    console.log(e, brand[e]);
     setDataFill({
       ...dataFill,
-      brand_id: brand.data[e].id,
+      brand_id: brand[e].id,
       category_id: id,
     });
   }
@@ -129,7 +128,7 @@ export default function Product() {
                     className="mb-5"
                     onSelect={(e) => handeGoBrand(e)}
                   >
-                    {brand?.data?.map((bran, index) => {
+                    {brand?.map((bran, index) => {
                       return (
                         <Tab eventKey={index} title={bran.name}>
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -144,19 +143,47 @@ export default function Product() {
                                       />{" "}
                                     </Link>
 
-                                    <Card.Body className="card-product-body">
+                                    <Card.Body className="card-product-body my-0 py-0">
                                       <p className="font-medium">
                                         {item.category_name} - {item.brand_name}
                                       </p>
                                       <p className="font-22 text-b500 font-medium">
                                         {item.name}
                                       </p>
-                                      <Button
-                                        variant="b500"
-                                        className="btw-130 btn-square font-11"
-                                      >
-                                        ADD TO CART
-                                      </Button>
+
+                                      <p className="font-15 text-b500 font-medium mb-0">
+                                        {item.total_quantity &&
+                                          item.total_quantity > 0 && (
+                                            <>
+                                              Số lượng :{" "}
+                                              <span className="text-r300">
+                                                {" "}
+                                                {item.total_quantity}
+                                              </span>
+                                            </>
+                                          )}
+                                      </p>
+                                      {(item.total_quantity &&
+                                        item.total_quantity) > 0 ? (
+                                        <>
+                                          <Button
+                                            variant="b500"
+                                            className="btw-130 mt-2 btn-square font-11"
+                                          >
+                                            Đang có sẵn
+                                          </Button>
+                                        </>
+                                      ) : (
+                                        <>
+                                          {" "}
+                                          <Button
+                                            variant="b500"
+                                            className="btw-130 mt-2 btn-square font-11"
+                                          >
+                                            Hết hàng
+                                          </Button>
+                                        </>
+                                      )}
                                     </Card.Body>
                                   </Card>
                                 </div>

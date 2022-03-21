@@ -100,7 +100,8 @@
   border-top: 2px solid #f2f4ff;
   text-align: center;
   button {
-    display: none;
+    display: block;
+    margin: auto;
   }
 }
 .banner_3 {
@@ -188,13 +189,13 @@
 }
 .product-information {
   .price {
-    color: $r200;
+    //color: $r200;
     font-size: 32px;
     font-weight: 500;
     span {
       font-size: 20px;
-      color: $g200;
-      text-decoration: line-through;
+      color: rgb(209, 34, 34);
+     // text-decoration: line-through;
     }
   }
   .btn-check {
@@ -415,4 +416,19 @@
 }
 .minhight {
   min-height: 54vh;
+}
+.cart {
+ 
+  margin-left: -1px;
+  border-radius: 22px;
+  text-align: center;
+  position: absolute;
+  top: 4px;
+  /* bottom: 100px; */
+  /* left: 84px; */
+  /* right: 140px; */
+  background-color: #070505;
+  width: 23px;
+  color: #fff;
+
 }

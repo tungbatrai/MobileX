@@ -11,7 +11,7 @@ const BASE_REST_API_URL = "/product";
 // product/client?page=1&pageSize=10
 function getProduct(data) {
   return API.get(
-    `${BASE_REST_API_URL}/client?page=${data.pageable.pageNumber}&pageSize=${data.pageable.pageSize}`
+    `${BASE_REST_API_URL}?page=${data.pageable.pageNumber}&pageSize=${data.pageable.pageSize}`
   );
 }
 // function signup(data) {

@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./assets/common/Header";
 import Footer from "./assets/common/Footer";
 import Login from "./assets/components/Account/Login";
-import Demo from "./assets/components/Demo";
 import DefaultRouter from "./assets/common/DefaultRouter";
 function App() {
   return (

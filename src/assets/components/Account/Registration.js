@@ -21,48 +21,48 @@ export default function Registration() {
             <div className="container">
                 <Breadcrumb>
                     <Breadcrumb.Item href="/account">Account</Breadcrumb.Item>
-                    <Breadcrumb.Item active>Create Account</Breadcrumb.Item>
+                    <Breadcrumb.Item active>Tạo tài khoản</Breadcrumb.Item>
                 </Breadcrumb>
-                <h5 className="font-24 font-normal text-center">Create Account</h5>
+                <h5 className="font-24 font-normal text-center">Tạo tài khoản</h5>
                 <div className="box-w580">
                     <Form noValidate validated={validated} onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="validationCustom01">
-                            <Form.Label>First name</Form.Label>
+                            <Form.Label>Tên</Form.Label>
                             <Form.Control
                                 required
                                 type="text"
-                                placeholder="First name"
+                                placeholder="Mời nhập tên"
 
                             />
                             <Form.Control.Feedback type="invalid">
-                                Please enter First name
+                               Hãy nhập tên
                             </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="validationCustom02">
-                            <Form.Label>Last name</Form.Label>
+                            <Form.Label>Số điện thoại</Form.Label>
                             <Form.Control
                                 required
                                 type="text"
-                                placeholder="Last name"
+                                placeholder="Mời nhập số điện thoại"
 
                             />
                             <Form.Control.Feedback type="invalid">
-                                Please enter last name
+                                Hãy nhập số điện thoại
                             </Form.Control.Feedback>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control required type="password" placeholder="Password" />
+                            <Form.Label>Mật khẩu</Form.Label>
+                            <Form.Control required type="password" placeholder="Mời nhập khẩu" />
                             <Form.Control.Feedback type="invalid">
-                                Please enter password
+                                Hãy nhập mật khẩu
                             </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Confirm password</Form.Label>
-                            <Form.Control required type="confirmpassword" placeholder="Confirm password" />
+                            <Form.Label>Xác nhận mật khẩu</Form.Label>
+                            <Form.Control required type="confirmpassword" placeholder="Xác nhận mật khẩu" />
                             <Form.Control.Feedback type="invalid">
-                                Please confirm password
+                                Hãy nhập xác nhận mật khẩu
                             </Form.Control.Feedback>
                         </Form.Group>
 
