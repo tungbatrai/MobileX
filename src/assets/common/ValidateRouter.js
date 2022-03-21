@@ -4,7 +4,7 @@ function ValidateAuth() {
   let history = useHistory()
   const auth = localStorage.getItem('client_token')
   if (!auth) {
-      console.log(auth)
+     // console.log(auth)
     history.push('/login')
   }
   return <div></div>

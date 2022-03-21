@@ -18,6 +18,7 @@ import { ProductDetailService } from "../../services/ProductDetailService";
 import Banner6 from "../Images/user.png";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import DateTime from "./DateTime";
 export default function ProductDetail() {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -41,6 +42,7 @@ export default function ProductDetail() {
     handleSubmit,
     setValue,
     getValues,
+    reset,
     setError,
   } = useForm();
 
@@ -92,7 +94,9 @@ export default function ProductDetail() {
     // }, 1000);
   }, []);
   const formatPrice = (value) => {
-    return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+    if (value && value > 0) {
+      return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+    }
   };
   function getDetail() {
     ProductDetailService.getDetail(id).then((res) => {
@@ -209,7 +213,7 @@ export default function ProductDetail() {
   const [dataCommentSecond, setDataCommentSecond] = useState([]);
   const [dataCommentSecondRepName, setDataCommentSecondRepName] = useState();
   const [dataCommentSecondActive, setDataCommentSecondActive] = useState();
-  const [myCommentActive, setMyCommentActive] = useState(true);
+ // const [myCommentActive, setMyCommentActive] = useState(true);
   const [myCommentSecondActive, setMyCommentSecondActive] = useState(true);
   function CreateCommentSubmit() {
     //console.log(getValues(`comment.content`));
@@ -223,7 +227,10 @@ export default function ProductDetail() {
     // console.log(dataCreateComment);
     ProductDetailService.createCommentSecond(dataCreateComment).then((res) => {
       if (res.status === 200) {
-        window.location.reload(true);
+        //window.location.reload(true);
+        reset({
+          comment: '',
+        })
       }
     });
   }
@@ -261,7 +268,7 @@ export default function ProductDetail() {
       if (dataComment.length) {
         dataComment?.map((item) => {
           if (item.user_id == token.data[0].id) {
-            setMyCommentActive(false);
+          //  setMyCommentActive(false);
           }
         });
       }
@@ -280,6 +287,9 @@ export default function ProductDetail() {
       }
     }
   }, [dataCommentSecond]);
+  // function goCart () {
+  //   history.push("./cart")
+  // }
   return (
     <div>
       <div className="product-detail-page">
@@ -320,13 +330,12 @@ export default function ProductDetail() {
               </div>
               <div className="product-information">
                 <h3 className=" text-center text-md-left font-20 ">
-                  {/* {formatPrice(ActivePrice)} */}O Mặt hàng :
-                  <span className="text-b500"> {data?.name} đ</span>
+                  O Mặt hàng :<span className="text-b500"> {data?.name} đ</span>
                   {/* <span>36.990.000đ</span> */}
                 </h3>
                 <h3 className="price text-center text-md-left text-g700">
                   {/* {formatPrice(ActivePrice)} */} Giá cuối :
-                  <span className=""> {ActivePrice} đ</span>
+                  <span className=""> {formatPrice(ActivePrice)}đ</span>
                   {/* <span>36.990.000đ</span> */}
                 </h3>
                 <div className="radio-price">
@@ -382,19 +391,31 @@ export default function ProductDetail() {
                   </div>
                   <div className="promotion-list">
                     <p>
-                      <i className="fa fa-check-circle-o" aria-hidden="true"></i>
+                      <i
+                        className="fa fa-check-circle-o"
+                        aria-hidden="true"
+                      ></i>
                       Trả góp 0%
                     </p>
                     <p>
-                      <i className="fa fa-check-circle-o" aria-hidden="true"></i>
+                      <i
+                        className="fa fa-check-circle-o"
+                        aria-hidden="true"
+                      ></i>
                       Tặng bảo hành 2 năm
                     </p>
                     <p>
-                      <i className="fa fa-check-circle-o" aria-hidden="true"></i>
+                      <i
+                        className="fa fa-check-circle-o"
+                        aria-hidden="true"
+                      ></i>
                       Tặng eSim Thần Tám 79 Itel 1T Data khủng 90GB
                     </p>
                     <p>
-                      <i className="fa fa-check-circle-o" aria-hidden="true"></i>
+                      <i
+                        className="fa fa-check-circle-o"
+                        aria-hidden="true"
+                      ></i>
                       Giảm sốc 50% cho gói bảo hành vàng chỉ từ 550.000đ
                     </p>
                   </div>
@@ -416,7 +437,11 @@ export default function ProductDetail() {
                   type="submit"
                   className="btn-square w-100 btn-buy-now mt-3"
                 >
-                  <h3 className="uppercase font-20">Mua ngay</h3>
+                  <h3 className="uppercase font-20">
+                    <Link to={`/cart`} style={{ color: "white" }}>
+                      Mua ngay
+                    </Link>
+                  </h3>
                   <p className="font-13 m-0">
                     Giao hàng miễn phí hoặc nhận tại shop
                   </p>
@@ -429,28 +454,15 @@ export default function ProductDetail() {
           <div className="container">
             <div className="grid grid-cols-12 gap-5">
               <div className="product-features col-span-12 md:col-span-7">
-                {/* <h3 className="font-20 font-medium mb-5">
-                  Đặc điểm nổi bật của iPhone 13 Pro Max
-                </h3> */}
-                {/* <div>
-                  <Slider {...settingsProduct}>
-                    <div className="image_h375">
-                      <Image src={Product1} alt="banner" />
-                    </div>
-                    <div className="image_h375">
-                      <Image src={Product2} alt="banner" />
-                    </div>
-                    <div className="image_h375">
-                      <Image src={Product3} alt="banner" />
-                    </div>
-                  </Slider>
-                </div> */}
                 <div className="mt-5">
                   <h3 className="font-20 font-medium text-center mb-4">
                     Đánh giá chi tiết {data?.name}
-                    
                   </h3>
-                  <p className="g500 title-header"><div dangerouslySetInnerHTML={{ __html: data?.description  }} /></p>{" "}
+                  <p className="g500 title-header font-15">
+                    <div
+                      dangerouslySetInnerHTML={{ __html: data?.description }}
+                    />
+                  </p>{" "}
                   <br />
                   {/* <ReactReadMoreReadLess
                     charLimit={200}
@@ -482,8 +494,6 @@ export default function ProductDetail() {
                     <h5 className="font-16 font-normal">Đánh giá trung bình</h5>
                     <div className="number_rating">{dataRating?.average}</div>
                     <div className="rating">
-                      {/* <ReactRating initialRating={5} readonly /> */}
-
                       <ReactRating
                         initialRating={dataRating?.average}
                         readonly
@@ -670,7 +680,11 @@ export default function ProductDetail() {
                             fractions={2}
                           />
                           <span className="font-14 text-g200 ml-2">
-                            {item.time_rate}
+                            <DateTime
+                              format=""
+                              type="date"
+                              date={item.time_rate}
+                            />
                           </span>
                           <p className="font-16 text-g100">{item.content}</p>
                         </div>
@@ -683,7 +697,7 @@ export default function ProductDetail() {
             {/* comment creat 1 */}
             <div className="box-answer-comment mt-5">
               <p className="font-20 font-medium">Hỏi & Đáp về {data?.name}</p>
-              {myCommentActive && (
+              {/* {myCommentActive && ( */}
                 <>
                   <FloatingLabel
                     controlId="floatingTextarea"
@@ -705,7 +719,7 @@ export default function ProductDetail() {
                     </Button>
                   </FloatingLabel>
                 </>
-              )}
+              {/* )} */}
 
               {/* comment */}
               {dataComment?.map((item, index) => {
@@ -725,7 +739,11 @@ export default function ProductDetail() {
                       <p className="font-18 m-0">
                         {item.user_name}
                         <span className="font-14 text-g200 ml-2">
-                          {item.time_comment}
+                          <DateTime
+                            format=""
+                            type="date"
+                            date={item.time_comment}
+                          />
                         </span>
                       </p>{" "}
                       <p className="font-16 text-g100 m-0">{item.content}</p>
@@ -753,7 +771,11 @@ export default function ProductDetail() {
                                     <p className="font-18 ml-3 d-flex items-center">
                                       {itemSecond.user_name}
                                       <span className="font-14 text-g200 ml-2">
-                                        {itemSecond.time_comment}
+                                        <DateTime
+                                          format=""
+                                          type="date"
+                                          date={itemSecond.time_comment}
+                                        />
                                       </span>
                                     </p>{" "}
                                     <p className="font-16 text-g100 ml-3">
