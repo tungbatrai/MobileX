@@ -1,5 +1,3 @@
-/** @format */
-
 import axios from "axios";
 
 const API = axios.create({
@@ -10,10 +8,9 @@ const API = axios.create({
 API.interceptors.request.use(
   (config) => {
     if (!config.headers.Authorization) {
-      const token = JSON.parse(localStorage.getItem("client_token"));
-
-      if (token.token) {
-        config.headers.Authorization = `Bearer ${token.token}`;
+      const token = localStorage.getItem("access_token");
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
       }
     }
     return config;

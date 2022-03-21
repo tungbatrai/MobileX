@@ -14,7 +14,7 @@ export default function Header() {
   const [breadcrumb, setBreadcrumb] = useState();
   useEffect(() => {
     getCategory();
-  }, [breadcrumb]);
+  }, []);
   function getCategory() {
     CommontService.getList().then((res) => {
       if (res.status === 200) {

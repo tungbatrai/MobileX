@@ -14,15 +14,6 @@ import {
 import PaginationSection from "../common/PaginationSection";
 import { useParams, Link, useHistory } from "react-router-dom";
 import { ProductService } from "../../services/ProductService";
-let active = [];
-let items = [];
-for (let number = 1; number <= 5; number++) {
-  items.push(
-    <Pagination.Item key={number} active={number === active}>
-      {number}
-    </Pagination.Item>
-  );
-}
 
 export default function Product() {
   const history = useHistory();
@@ -34,6 +25,8 @@ export default function Product() {
   const handleShow = () => setShow(true);
   const { id } = useParams();
   const [brandSetup, setBrandSetup] = useState(false);
+  const [brand0, setBrand0] = useState();
+  const [activeTab, setActiveTab] = useState();
   const [dataFill, setDataFill] = useState({
     pageable: {
       pageNumber: 1,
@@ -52,44 +45,39 @@ export default function Product() {
   }, []);
   useEffect(() => {
     if (brandSetup) {
-      setDataFill({
-        ...dataFill,
-        category_id: id,
-      });
-      setLoadBrand(true);
+      getBrand();
     }
   }, [id]);
+  useEffect(() => {
+    if (brandSetup) {
+      getProduct();
+    }
+  }, [dataFill]);
   function getBrand() {
     ProductService.getBrand().then((res) => {
       if (res.status === 200) {
-        console.log("brand", id, res.data.data);
         let dataRv = res.data.data.reverse();
         setBran(dataRv);
-
+        setBrand0(dataRv[0].id);
+        setActiveTab(0);
         setDataFill({
           ...dataFill,
-          // category_id: id,
+          category_id: id,
           brand_id: dataRv[0].id,
         });
       }
     });
   }
-  useEffect(() => {
-    if (loadBrand) {
-      console.log(dataFill);
-      getProduct();
-    }
-  }, [dataFill]);
+
   function getProduct() {
     ProductService.getProduct(dataFill).then((res) => {
       if (res.status === 200) {
-        console.log("data", res.data.data);
         setData(res.data);
       }
     });
   }
   function handeGoBrand(e) {
-    console.log(e, brand[e]);
+    setActiveTab(e);
     setDataFill({
       ...dataFill,
       brand_id: brand[e].id,
@@ -123,6 +111,7 @@ export default function Product() {
                 <div className="tab-choose ">
                   <Tabs
                     defaultActiveKey="0"
+                    activeKey={activeTab}
                     transition={false}
                     id="noanim-tab-example"
                     className="mb-5"
@@ -130,7 +119,11 @@ export default function Product() {
                   >
                     {brand?.map((bran, index) => {
                       return (
-                        <Tab eventKey={index} title={bran.name}>
+                        <Tab
+                          id={`tab${index}`}
+                          eventKey={index}
+                          title={bran.name}
+                        >
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             {data?.data?.map((item, i) => {
                               return (

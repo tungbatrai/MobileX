@@ -5,8 +5,6 @@ import { Card, Button, Modal, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { HomeService } from "../../../services/HomeService";
-import Banner from "../../Images/banner2.jpg";
-import Banner3 from "../../Images/banner3.jpg";
 export default function BestSeller() {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
