@@ -6,9 +6,20 @@ import { NavLink } from "react-router-dom";
 import { Breadcrumb, Image, Nav } from "react-bootstrap";
 import Logo from "../Images/logo.png";
 import { CommontService } from "../../services/CommontService";
-import { Link } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
 export default function Header() {
+  const history = useHistory();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    setValue,
+    getValues,
+    reset,
+    setError,
+  } = useForm();
   const count = useSelector((state) => state.numberCart);
   const [data, setData] = useState([]);
   const [breadcrumb, setBreadcrumb] = useState();
@@ -22,6 +33,12 @@ export default function Header() {
         setData(res.data);
       }
     });
+  }
+  function findData(e) {
+    if (e.key === "Enter") {
+      history.push("/catalog");
+      localStorage.setItem("find", getValues(`find`));
+    }
   }
   return (
     <div>
@@ -39,16 +56,23 @@ export default function Header() {
                 className="ipw-300 height-44 input-search w-100 mr-2 px-2"
                 type="search"
                 placeholder="Search..."
+                onKeyUp={(e) => {
+                  setValue(`find`, e.target.value);
+                  findData(e);
+                }}
+                {...register(`find`, {
+                  value: "",
+                })}
               />
               <NavLink to="my-order" className="header_search">
-                Đơn hàng 
+                Đơn hàng
               </NavLink>
               <NavLink to="account" className="header_search">
                 Tài khoản
               </NavLink>
 
               <NavLink to="/cart" className="header_search">
-                Giỏ <span className="cart">{count>0 && ( <>{count}</>)}</span>
+                Giỏ <span className="cart">{count > 0 && <>{count}</>}</span>
               </NavLink>
             </div>
           </div>
@@ -69,18 +93,7 @@ export default function Header() {
                   </Nav.Item>
                 );
               })}
-              {/* <Nav.Item>
-                <Nav.Link href="/catalog">Điện thoại</Nav.Link>
-              </Nav.Item> */}
-              {/* <Nav.Item>
-                <Nav.Link href="/laptop">Laptop</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/clock">Đồng Hồ thông minh</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/accessory">Phụ kiện</Nav.Link>
-              </Nav.Item> */}
+
               <Nav.Item>
                 <Link
                   to="/contact-us"
@@ -94,15 +107,6 @@ export default function Header() {
           </div>
         </div>
       </header>
-      {/* <div className="container">
-        {breadcrumb && (
-          <Breadcrumb>
-            <Breadcrumb.Item className="breadcrum">Home</Breadcrumb.Item>
-
-            <Breadcrumb.Item active>{breadcrumb}</Breadcrumb.Item>
-          </Breadcrumb>
-        )}
-      </div> */}
     </div>
   );
 }

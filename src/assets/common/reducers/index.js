@@ -9,8 +9,8 @@ const intiCount = {
   Cart: cart,
 };
 function reducer(state = intiCount, action) {
- // console.log(action.newItem);
-//console.log(action.type,state.numberCart)
+  // console.log(action.newItem);
+  //console.log(action.type,state.numberCart)
   switch (action.type) {
     case ADDTOCART:
       if (state.numberCart === 0) {
@@ -19,7 +19,7 @@ function reducer(state = intiCount, action) {
           quantity: action.quantity,
           total: action.newItem.price,
         };
-    //    console.log(cart)
+        //    console.log(cart)
         state.Cart.push(cart);
       } else {
         let check = false;
@@ -48,9 +48,9 @@ function reducer(state = intiCount, action) {
       };
     case UPDATEQUANTITY:
       let count = 0;
-      console.log(state)
+      console.log(state);
       let updateQuantity = parseInt(action.updateQuantity);
-    
+
       state.Cart.map((item, key) => {
         if (item.product.id === action.id) {
           state.Cart[key].quantity = updateQuantity;
@@ -78,7 +78,8 @@ function reducer(state = intiCount, action) {
       console.log(numberMinus);
       return {
         ...state,
-        Cart: state.Cart.filter((item) => item.product.id !== action.id),
+        Cart: [],
+        // state.Cart.filter((item) => item.product.id !== action.id)
         numberCart: 0,
         // state.numberCart - numberMinus[0].quantity
       };

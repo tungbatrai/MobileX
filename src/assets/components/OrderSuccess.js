@@ -3,16 +3,11 @@
 import React, { useState } from "react";
 import { Button, FloatingLabel, Form, Image, Modal } from "react-bootstrap";
 import { useHistory } from "react-router";
-import Banner from "../Images/banner2.jpg";
+import Banner from "../Images/completed.jpg";
 export default function OrderSuccess() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const history = useHistory();
   const productlist = () => {
-    history.push("/catalog");
+    history.push("/");
   };
   const home = () => {
     history.push("/");
@@ -37,26 +32,8 @@ export default function OrderSuccess() {
             </span>{" "}
             cho anh.
           </p>
-          <div className="box-choose-content my-4">
-            <p className="uppercase">đơn hàng : #905531</p>
-            <p>
-              - <span className="font-medium">Người nhận hàng : </span>
-              Anh Tùng, 0965323888
-            </p>
-            <p>
-              - <span className="font-medium">Giao đến : </span>
-              19 Lê Văn Lương , Thanh Xuân , Hà Nội
-            </p>
-            <p>
-              - <span className="font-medium">Tổng tiền : </span>
-              <span className="text-r300 m-0">{formatPrice(23000000)}₫</span>
-            </p>
-            <p
-            className="font-14 text-blue-500  mt-3"
-            onClick={handleShow}
-          >
-            Hủy đơn hàng
-          </p>
+          <div className="box-choose-content my-4 ">
+          <Image src={Banner} alt="banner" />
           </div>
         </div>
 
@@ -71,40 +48,7 @@ export default function OrderSuccess() {
           </Button>
         </div>
       </div>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-        className="modal-cancel-order"
-        centered
-      >
-        <div className="font-14">
-          <h4 className="font-16 uppercase mb-4">hủy đơn hàng</h4>
-          <p>Bạn có muốn hủy đơn hàng ?</p>
-
-          <div className="grid grid-cols-2 gap-3 mb-3">
-            <div>
-              <Button
-                variant="b500"
-                className="btn-square w-100 font-14 font-semibold"
-                onClick={handleClose}
-              >
-                Đóng
-              </Button>
-            </div>
-            <div>
-              <Button
-                variant="b500"
-                className="btn-square w-100 font-14 font-semibold"
-                onClick={home}
-              >
-                Xác nhận
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Modal>
+  
     </div>
   );
 }

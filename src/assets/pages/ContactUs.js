@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import { Breadcrumb, Button, Form } from "react-bootstrap";
 import Map from "../common/Map";
@@ -15,23 +17,22 @@ export default function ContactUs() {
           <div className="col-span-12 md:col-span-2">
             <ul className="mb-4">
               <li className="font-16 font-semibold uppercase">
-                CUSTOMER SERVICE
+                THÔNG TIN CƠ BẢN
               </li>
-              <li className="text-g200">09123 456 789</li>
-              <li className="text-g200">Monday to Friday</li>
-              <li className="text-g200">10am - 6.30pm (NewYork time)</li>
+              <li className="text-g200">
+                Hoạt động : Từ thứ 2 đến thứ 6 tất cả các ngày trong năm
+              </li>
+              <li className="text-g200">
+                Thời gian mở / đóng cửa : 8am - 8.30pm
+              </li>
+              <li className="text-g200">03337543322</li>
             </ul>
             <ul className="mb-4">
-              <li className="font-16 font-semibold uppercase">
-                PRODUCTS & ORDERS
+              <li className="font-16 font-semibold uppercase">CAM ĐOAN</li>
+              <li className="text-g200">Vận chuyển dưới 5 ngày</li>
+              <li className="text-g200">
+                Miễn phí đổi trả trong 15 ngày 1 đổi 1
               </li>
-              <li className="text-g200">09123 456 789</li>
-              <li className="text-g200">Monday to Friday</li>
-              <li className="text-g200">10am - 6.30pm (NewYork time)</li>
-            </ul>
-            <ul className="mb-4">
-              <li className="font-16 font-semibold uppercase">STORE LOCATOR</li>
-              <li className="text-g200">521 Fifth Avenue, Pelham, NY 10783</li>
             </ul>
           </div>
           <div className="col-span-12 md:col-span-10">
@@ -40,37 +41,13 @@ export default function ContactUs() {
             </div>
             <div>
               <p className="font-24 font-semibold">
-                Have a question about a product, our company, or just want to
-                chat? Email us!
+                Bạn có câu hỏi về sản phẩm, công ty của chúng tôi vui lòng  Gửi email cho chúng tôi : shopmobieST@gmail.com
               </p>
               <p className="text-g200">
-                We will be glad to assist you in any question and encourage you
-                to share your ideas and improvements with us.
+                Chúng tôi sẽ sẵn lòng hỗ trợ bạn trong bất kỳ câu hỏi nào và
+                khuyến khích bạn để chia sẻ ý tưởng và cải tiến của bạn với
+                chúng tôi.
               </p>
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label className="font-16 font-bold">Name</Form.Label>
-                  <Form.Control type="name" placeholder="Name" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label className="font-16 font-bold">Email</Form.Label>
-                  <Form.Control type="email" placeholder="Email" />
-                </Form.Group>
-                <Form.Label className="font-16 font-bold">Message</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  placeholder="Message"
-                  // style={{ height: "100px" }}
-                  className=" min-height"
-                />
-              </Form>
-              <Button
-                variant="r200"
-                className="btn-evaluate btn-square btw-130"
-              >
-                <p className="font-13">Gửi đánh giá </p>
-              </Button>
             </div>
           </div>
         </div>

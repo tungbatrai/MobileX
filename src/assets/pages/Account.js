@@ -32,7 +32,7 @@ export default function Account() {
     });
   }, []);
   function handleLogout() {
-    localStorage.removeitem("client_token");
+    localStorage.clear();
     history.push("/login");
   }
   function onSubmit(data) {
@@ -61,16 +61,13 @@ export default function Account() {
           "Mật khẩu không được bỏ trống và có số kí tự lớn hơn 10 vui lòng kiểm tra...",
           "warning"
         ).then((res) => {
-          return
+          return;
         });
       }
       dataR = userData;
     }
-    console.log(dataR);
-
     LoginService.putUser(dataR)
       .then((res) => {
-        console.log(res)
         if (res.status === 200) {
           swal("Thay đổi thành công !", "", "success");
         } else {

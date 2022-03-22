@@ -7,6 +7,7 @@ import Banner from "../Images/banner2.jpg";
 import { orderService } from "../../services/orderService";
 import PaginationSection from "../common/PaginationSection";
 import swal from "sweetalert";
+import DateTime from "../common/DateTime";
 export default function MyOrder() {
   const [data, setData] = useState([]);
   const history = useHistory();
@@ -31,7 +32,7 @@ export default function MyOrder() {
   const [dataFill, setDataFill] = useState({
     pageable: {
       pageNumber: 1,
-      pageSize: 2,
+      pageSize: 5,
     },
     user: "",
   });
@@ -43,7 +44,7 @@ export default function MyOrder() {
         setData(res.data);
       }
     });
-  }, []);
+  }, [dataFill]);
 
   function handleLoad(number) {
     setDataFill({
@@ -67,7 +68,7 @@ export default function MyOrder() {
                   <div className="col-span-4 md:col-span-2">
                     <div className="cart-image-product">
                       <Image
-                        src="https://res.cloudinary.com/cloudygod/image/upload/v1647262723/category/file_g7canm.jpg"
+                        src={item.image}
                         alt="banner"
                       />
                     </div>
@@ -108,7 +109,8 @@ export default function MyOrder() {
                 </div>
                 <div className="grid grid-cols-12 gap-4 ml-4">
                   <div className="col-span-8 md:col-span-10">
-                    Thời gian đặt hàng :2022-03-16 22:36:49
+                    Thời gian đặt hàng :
+                    <DateTime format="" type="date" date={item?.time_order} />
                   </div>
                   <div className="col-span-4 md:col-span-10">
                     {item.status == "COMPLETED" ? (
@@ -135,14 +137,14 @@ export default function MyOrder() {
             </>
           );
         })}
-          <div className="d-flex justify-content-center mt-2">
+        <div className="d-flex justify-content-center mt-2">
           <PaginationSection
-                size={dataFill.pageable.pageSize}
-                number={data.currentPage}
-                totalElements={data.totalElements}
-                handlePaging={handleLoad}
-              />
-          </div>
+            size={dataFill.pageable.pageSize}
+            number={data.currentPage}
+            totalElements={data.totalElements}
+            handlePaging={handleLoad}
+          />
+        </div>
       </div>
     </div>
   );

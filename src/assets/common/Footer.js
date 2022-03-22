@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="footer_main">
           <div className="footer-contact grid grid-rows-4 md:grid-rows-1 grid-flow-col gap-4">
             <div>
-              <h6 className="mb-3">Thông tin cơ bản </h6>
+              <h6 className="mb-3">THÔNG TIN CƠ BẢN </h6>
               <ul className="text-g200">
                 <li>
                   Hoạt động : Từ thứ 2 đến thứ 6 tất cả các ngày trong năm
