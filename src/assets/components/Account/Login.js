@@ -24,9 +24,12 @@ export default function Login() {
   } = useForm();
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("client_token"));
-    if (token.status == 200) {
-      history.push("/");
+    if(token) {
+      if (token.status == 200) {
+        history.push("/");
+      }
     }
+    
   }, []);
   function onSubmit(data) {
     const dataLogin = {
@@ -41,7 +44,9 @@ export default function Login() {
           (value) => {
             history.push("/");
           }
-        );
+        ) 
+      }  else {
+        swal("Đăng nhập không công", "Vui lòng đăng nhập lại !", "error")
       }
     });
   }

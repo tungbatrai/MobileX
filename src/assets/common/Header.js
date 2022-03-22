@@ -35,10 +35,10 @@ export default function Header() {
     });
   }
   function findData(e) {
-    if (e.key === "Enter") {
-      history.push("/catalog");
-      localStorage.setItem("find", getValues(`find`));
-    }
+    // if (e.key === "Enter") {
+    //   history.push("/catalog");
+    //   localStorage.setItem("find", getValues(`find`));
+    // }
   }
   return (
     <div>
