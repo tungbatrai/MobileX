@@ -113,6 +113,14 @@
     color: #fff;
   }
 }
+.btn-g200 {
+  border-color: $g200;
+  background-color: $g200;
+  color: #fff;
+  &:hover {
+    color: #fff;
+  }
+}
 .btn-b500 {
   border-color: $b500;
   background-color: $b500;

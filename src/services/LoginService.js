@@ -6,7 +6,9 @@ export const LoginService = {
   login,
   signup,
   resetPass,
-  createUser
+  createUser,
+  getUserDetail,
+  putUser
 };
 
 const BASE_URL = "user";
@@ -23,4 +25,9 @@ function resetPass(data) {
 function createUser(data) {
   return API.post(`${BASE_URL}/signup`, data);
 }
-
+function getUserDetail(id) {
+  return API.get(`${BASE_URL}/${id}`);
+}
+function putUser(data) {
+  return API.put(`${BASE_URL}`, data);
+}

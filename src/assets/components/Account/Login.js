@@ -37,7 +37,7 @@ export default function Login() {
     LoginService.login(dataLogin).then((res) => {
       if (res.data.status == 200) {
         localStorage.setItem("client_token", JSON.stringify(res.data));
-        swal("Good job!", "You clicked the button!", "success").then(
+        swal("Đăng nhập thành công", "Trang bạn sẽ được chuyển đến trang home !", "success").then(
           (value) => {
             history.push("/");
           }
@@ -178,7 +178,7 @@ function Registration(props) {
         LoginService.createUser(dataRegister)
           .then((res) => {
             if (res.data.status == 200) {
-              swal("Good job!", "You clicked the button!", "success").then(
+              swal("Tạo tài khoản thành công ", "Vui lòng đăng nhập tài khoản mới !", "success").then(
                 (value) => {
                   login();
                 }
@@ -338,7 +338,7 @@ function RePassword(props) {
         .then((res) => {
           // console.log(res);
           if (res.data.status === 200) {
-            swal("Good job!", "You clicked the button!", "success").then(
+            swal("Đổi mật khẩu thành công!", "Vui lòng kiểm tra mail", "success").then(
               (value) => {
                 login();
               }

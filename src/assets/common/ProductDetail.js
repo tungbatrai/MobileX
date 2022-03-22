@@ -136,16 +136,11 @@ export default function ProductDetail() {
   }
   function handleColor(item, index) {
     setColorActive(index);
-    // setActivePrice(item.price);
     document.getElementById(`rom-${index}`).click();
     setActiveColor(item.color);
     setProductTypeActive(dataType[index]);
   }
-  function onSubmit(data) {
-    // const Cart = () => {
-    //   history.push("/cart");
-    // };
-  }
+  function onSubmit(data) {}
   // rating
   const [rat1, setRat1] = useState(0);
   const [rat2, setRat2] = useState(0);
@@ -214,7 +209,6 @@ export default function ProductDetail() {
   const [dataCommentSecondRepName, setDataCommentSecondRepName] = useState();
   const [dataCommentSecondActive, setDataCommentSecondActive] = useState();
   // const [myCommentActive, setMyCommentActive] = useState(true);
-  const [myCommentSecondActive, setMyCommentSecondActive] = useState(true);
   function CreateCommentSubmit() {
     //console.log(getValues(`comment.content`));
     const token = JSON.parse(localStorage.getItem("client_token"));
@@ -226,7 +220,6 @@ export default function ProductDetail() {
     };
     ProductDetailService.createCommentSecond(dataCreateComment).then((res) => {
       if (res.status === 200) {
-        //window.location.reload(true);
         reset({
           comment: "",
         });

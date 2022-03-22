@@ -17,12 +17,9 @@ import { ProductService } from "../../services/ProductService";
 
 export default function Product() {
   const history = useHistory();
-  const [show, setShow] = useState(false);
   const [brand, setBran] = useState([]);
   const [data, setData] = useState([]);
   const [loadBrand, setLoadBrand] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const { id } = useParams();
   const [brandSetup, setBrandSetup] = useState(false);
   const [brand0, setBrand0] = useState();
