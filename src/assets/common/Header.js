@@ -64,16 +64,16 @@ export default function Header() {
                   value: "",
                 })}
               />
-              <NavLink to="my-order" className="header_search">
+              <Link to="/my-order" className="header_search">
                 Đơn hàng
-              </NavLink>
-              <NavLink to="account" className="header_search">
+              </Link>
+              <Link to="/account" className="header_search">
                 Tài khoản
-              </NavLink>
+              </Link>
 
-              <NavLink to="/cart" className="header_search">
+              <Link to="/cart" className="header_search">
                 Giỏ <span className="cart">{count > 0 && <>{count}</>}</span>
-              </NavLink>
+              </Link>
             </div>
           </div>
         </div>

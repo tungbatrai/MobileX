@@ -8,6 +8,7 @@ import { orderService } from "../../services/orderService";
 import PaginationSection from "../common/PaginationSection";
 import swal from "sweetalert";
 import DateTime from "../common/DateTime";
+import { LoginService } from "../../services/LoginService";
 export default function MyOrder() {
   const [data, setData] = useState([]);
   const history = useHistory();
@@ -38,10 +39,16 @@ export default function MyOrder() {
   });
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("client_token"));
-    orderService.getMyOrder(dataFill, token.data[0].name).then((res) => {
-      if (res?.data?.status === 200) {
-        console.log(res.data);
-        setData(res.data);
+    LoginService.getUserDetail(token.data[0].id).then((respon) => {
+      if (respon.status === 200) {
+        orderService
+          .getMyOrder(dataFill, respon.data.data[0]?.name)
+          .then((res) => {
+            if (res?.data?.status === 200) {
+              console.log(res.data);
+              setData(res.data);
+            }
+          });
       }
     });
   }, [dataFill]);
@@ -67,10 +74,7 @@ export default function MyOrder() {
                 <div className="grid grid-cols-12 gap-4 ml-4">
                   <div className="col-span-4 md:col-span-2">
                     <div className="cart-image-product">
-                      <Image
-                        src={item.image}
-                        alt="banner"
-                      />
+                      <Image src={item.image} alt="banner" />
                     </div>
                   </div>
                   <div className="col-span-8 md:col-span-10">

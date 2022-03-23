@@ -25,37 +25,38 @@ export default function Cart() {
   } = useForm();
   const orderSubmit = () => {
     const token = JSON.parse(localStorage.getItem("client_token"));
-    let dataOrder = []
-    product.map((item,index) => {
+    let dataOrder = [];
+    product.map((item, index) => {
       const d1 = new Date().getTime();
-      const a = ["ft", token.data[0].id, d1,index];
+      const a = ["ft", token.data[0].id, d1, index];
       let ship_code = a.join("");
       let order = {
         customer_id: token.data[0].id,
         product_id: item.product.id,
         quantity: item.quantity,
         status: "WAITING",
-        ship_code :ship_code,
+        ship_code: ship_code,
         phone_num: getValues(`phone`),
-        address: getValues(`address`)
+        address: getValues(`address`),
       };
-    
-     dataOrder.push(order.ship_code)
-   
-    
+
+      dataOrder.push(order.ship_code);
+
       cartService.creatCart(order).then((res) => {
         if (res.status === 200) {
           console.log("success");
-          setOrderNow()
-         
+          setOrderNow();
         }
       });
     });
-    setOrderNow(dataOrder)
+    removeItemAll()
+    localStorage.setItem("count", 0);
+    localStorage.setItem("cart", []);
+    setOrderNow(dataOrder);
     history.push("/ordersuccess");
   };
   useEffect(() => {
-   console.log(orderNow)
+    console.log(orderNow);
   }, [orderNow]);
   const [number, setNumber] = useState(1);
   const product = useSelector((state) => state.Cart);

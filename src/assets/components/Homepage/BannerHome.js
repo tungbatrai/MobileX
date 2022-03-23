@@ -9,23 +9,23 @@ export default function BannerHome() {
         <div className="banner_text">
           <div className="caption_text">
             <h4 className="text-b500 uppercase font-16">
-              CREATING A FEATURE NOW!
+              CÔNG NGHỆ TƯƠNG LAI !
             </h4>
             <h3 className="font-lg-60 font-25 font-semibold  my-4">
               Best Laptops!
             </h3>
-            <p>Our extensive collection of men’s and women’s!</p>
+            <p>Sản phẩm không thể thiếu cho mọi lứa tuổi !</p>
             <Button
               variant="b500"
               className="btn-square btw-154 font-11 font-semibold mt-2"
             >
-              SHOP NOW
+              MUA NGAY
             </Button>
           </div>
           <div className="caption_text">
-            <h4 className="font-22">Great deals every weekends!</h4>
+            <h4 className="font-22">Tốt hơn và rẻ hơn !</h4>
             <h3 className="price font-lg-60 font-25 font-semibold ">
-              From $699
+            Giá chỉ từ  39.999.000d
             </h3>
           </div>
         </div>
