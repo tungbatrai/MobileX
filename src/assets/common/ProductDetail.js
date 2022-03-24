@@ -200,7 +200,12 @@ export default function ProductDetail() {
     };
     ProductDetailService.createRating(dataCreate).then((res) => {
       if (res.status === 200) {
-        window.location.reload(true);
+        ProductDetailService.getRating(id).then((res) => {
+          if (res.status === 200) {
+            setDataRating(res.data.data);
+            setShowRate(false)
+          }
+        });
       }
     });
   }

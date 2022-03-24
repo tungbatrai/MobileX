@@ -61,7 +61,7 @@ export default function Header() {
                   findData(e);
                 }}
                 {...register(`find`, {
-                  value: "",
+                  value: getValues(`find`),
                 })}
               />
               <Link to="/my-order" className="header_search">
